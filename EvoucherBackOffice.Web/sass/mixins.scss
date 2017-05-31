@@ -1,0 +1,78 @@
+﻿@import "variables";
+
+//Maxims
+@mixin title-style($color: blue, $background: green) {
+    margin: 0 0 20px 0;
+    font-family: $font-family-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $color;
+    background: $background; 
+}
+
+@mixin rounded($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin shadow($x, $y, $blur, $color) {
+    -webkit-box-shadow: $x $y $blur $color; 
+    -moz-box-shadow: $x $y $blur $color;
+    box-shadow: $x $y $blur $color;
+}
+
+@mixin shadow-inset($x, $y, $blur, $color) {
+    -webkit-box-shadow: inset $x $y $blur $color;
+    -moz-box-shadow: inset $x $y $blur $color;
+    box-shadow: inset $x $y $blur $color;
+}
+
+@mixin transition($property) {
+    -webkit-transition: $property .2s ease;
+    -moz-transition: $property .2s ease;
+    -o-transition: $property .2s ease;
+    transition: $property .2s ease;
+}
+
+@mixin box-sizing {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@mixin linear-gradient($from, $to) {
+    /* Fallback for sad browsers */
+    background-color: $to;
+    /* Mozilla Firefox */
+    background-image: -moz-linear-gradient($from, $to);
+    /* Opera */
+    background-image: -o-linear-gradient($from, $to);
+    /* WebKit (Safari 4+, Chrome 1+) */
+    /*background-image: -webkit-gradient(linear, » left top, left bottom, color-stop(0, $from), » color-stop(1, $to));*/
+    /* WebKit (Chrome 11+) */
+    background-image: -webkit-linear-gradient($from, $to);
+    /* IE10 */
+    background-image: -ms-linear-gradient($from, $to);
+    /* W3C */
+    background-image: linear-gradient($from, $to);
+}
+
+@mixin circle($size) {
+     width: $size;
+     height: $size;
+     border-radius: 100%;
+}
+
+@mixin responsive($width) {
+    @if $width == wide-screens {
+        @media only screen and (max-width: $width-large) { @content; }
+    }
+    @else if $width == medium-screens {
+        @media only screen and (max-width: $width-medium) { @content; }
+    }
+    @else if $width == small-screens {
+        @media only screen and (max-width: $width-small) { @content; }
+    }
+}

@@ -1,0 +1,59 @@
+﻿//Evoucher Style Guides
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+
+// Main Color Variables
+$color-background:#0ab4cd;
+$color-background-alt:#262626;
+$color-background-alt2:#ffffff;
+$color-background-alt3:#69c475;
+$color-background-alt4:#f1f1f1;
+$color-background-alt5:#c2175b;
+$color-background-alt6:black;
+
+$color-button:#89c446;
+$color-button-alt:#fd5725;
+$color-button-alt2:#c2165b;
+
+$color-text:#1e181a;
+$color-text-alt:#ffffff;
+$color-text-alt2:#bdd630;
+$color-text-alt3:black;
+$color-text-alt4:#ccc;
+$color-text-alert:#ff0000;
+$color-text-callout:#1e181a;
+
+$color-border:#ffffff;
+$color-border-alt:#bdd630;
+$color-border-alt2:#1e181a;
+$color-border-alt3: #ccc;
+
+//Font Family
+$font-family-sans-serif:"Proxima Nova","Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif:Jubilat,  Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace:Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-base: $font-family-sans-serif !default;
+$font-family-open-sans:'Open Sans', sans-serif;
+
+/*$font-family-open-sans:;*/
+
+//Font Sizes
+$font-size-base:          14px !default;
+$font-size-large:         ceil(($font-size-base * 1.10)) !default; // ~18px
+$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+
+$font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
+$font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
+$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
+$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-h5:            $font-size-base !default;
+$font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
+
+//Line Height.
+$line-height-base:        1.428571429 !default; // 20/14
+$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
+
+//Media Query BreakPoint
+$width-small: 500px;
+$width-medium: 800px;
+$width-large: 1200px; 
+
