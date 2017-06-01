@@ -14,6 +14,11 @@ namespace EvoucherBackOffice.Web.Controllers
         {
             return View();
         }
+        public ActionResult DisplayVoucher()
+        {
+            return View();
+        }
+        [HttpPost]
         public ActionResult RedeemVoucher()
         {
             return View();
@@ -22,7 +27,7 @@ namespace EvoucherBackOffice.Web.Controllers
         {
             return View();
         }
-        public ActionResult VoucherList()
+        public ActionResult Experiences()
         {
             return View();
         }

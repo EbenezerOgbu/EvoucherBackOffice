@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace EvoucherBackOffice.Web.ViewModel
+namespace EvoucherBackOffice.Web.ViewModel.Account
 {
     public class ResetPasswordViewModel
     {

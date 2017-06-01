@@ -1,4 +1,4 @@
-﻿using EvoucherBackOffice.Web.ViewModel;
+﻿using EvoucherBackOffice.Web.ViewModel.Account;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 

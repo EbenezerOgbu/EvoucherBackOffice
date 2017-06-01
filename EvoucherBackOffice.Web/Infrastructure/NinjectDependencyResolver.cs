@@ -1,4 +1,5 @@
-﻿using Ninject;
+﻿using EvoucherBackOffice.Services;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -23,7 +24,9 @@ namespace EvoucherBackOffice.Web.Infrastructure
         }
         private void AddBindings()
         {
-           
+            kernel.Bind<IAccountService>().To<AccountService>().WithConstructorArgument("baseUrl", Properties.Settings.Default.ApiUrl);
+            kernel.Bind<IVoucherService>().To<VoucherService>().WithConstructorArgument("baseUrl", Properties.Settings.Default.ApiUrl);
+            kernel.Bind<ICart>().To<Cart>().InSingletonScope();
         }
     }
 }
