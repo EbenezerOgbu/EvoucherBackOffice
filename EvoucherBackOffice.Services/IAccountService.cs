@@ -1,12 +1,12 @@
-﻿using EvoucherBackOffice.Services.DTObjects;
-using System.Collections.Generic;
+﻿using EvoucherBackOffice.Services.DTObjects.Account;
 using System.Threading.Tasks;
 
 namespace EvoucherBackOffice.Services
 {
     public interface IAccountService
     {
-        Task<List<ExperienceDTO>> GetCategories();
-        Task PostOrder(OrderDTO order);
+        Task Login(LoginDTO login);
+        Task RequestPasswordReset(ForgotPasswordDTO forgotPassword);
+        Task ResetPassword(ResetPasswordDTO resetPassword);
     }
 }

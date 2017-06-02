@@ -1,4 +1,65 @@
 ﻿@import "../variables";
 .home-index{
 
+    &__logo-wrapper{
+        margin: 30px 0px 0px 6px
+    }
+
+    &__logo{
+        height: 30px;
+    }
+
+    &__panel{
+        margin: 80px 0px 0px 30px;
+        width: 450px;
+    }
+
+    &__panel-header{
+       height: 100px;
+       width: 100%;
+       background-color:$color-background-alt;
+       padding-top: 40px;
+    }
+
+    &__panel-header-title{
+        color: $color-text-alt;
+    }
+
+    &__panel-body{
+       height: 450px;
+       width: 100%;
+       background-color:$color-background;
+       padding: 30px 0px 0px 0px;
+    }
+
+    &__panel-section-wrapper{
+        height: 224px;
+    }
+
+    &__panel-section-title{
+        color: $color-text-alt;
+        margin: 12px 0px 0px 0px;
+        font-size: 15px;
+    }
+
+    &__panel-section-button{
+        color: $color-text-alt3;
+        background-color:$color-background;
+        font-size: 15px; 
+        font-weight: bold; 
+        border:1px solid $color-text-alt; 
+        border-radius:50px;         
+        height:100px; 
+        width: 100px;
+        margin: 30px 0px 0px 0px;
+        &:focus{
+          outline:none;
+        }
+    }
+
+    &__panel-section-line{
+        background-color: $color-background-alt2;
+        margin: -40px 0px 40px 0px;
+        height:1px;
+    }
 }

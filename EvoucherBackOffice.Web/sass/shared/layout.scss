@@ -1,5 +1,6 @@
 ﻿@import "../variables";
-.layout{ 
+.layout{
+    font-family: $font-family-open-sans; 
     background-image: url('../../Images/c60cd20530632665d1bba03e00396009-edit.jpeg');  
     background-attachment:fixed;
     background-repeat: no-repeat;
@@ -7,12 +8,11 @@
     margin: 0;
     padding: 0;
     border: 0;
-    -webkit-filter: blur(15px);
+    /*-webkit-filter: blur(15px);
     -moz-filter: blur(15px);
-    -ms-filter: blur(15px);
+    -ms-filter: blur(15px);*/
+   
     &__body{
-        background-color: black;
-        opacity: 0.1;       
-        height:900px;
+     
     }
 }

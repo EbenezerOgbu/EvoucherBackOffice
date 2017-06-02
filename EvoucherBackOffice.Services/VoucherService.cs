@@ -1,8 +1,6 @@
-﻿using EvoucherBackOffice.Services.DTObjects;
-using EvoucherBackOffice.Services.DTObjects.Voucher;
+﻿using EvoucherBackOffice.Services.DTObjects.Voucher;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,27 +35,6 @@ namespace EvoucherBackOffice.Services
         public async Task RedeemVoucher(RedeemVoucherDTO redeemVoucher)
         {
             var content = JsonConvert.SerializeObject(redeemVoucher);
-            string uri = $"{_baseUrl}/ExpectingEndPoint/";
-            var res = await _httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")).ConfigureAwait(false);
-            var textData = await res.Content.ReadAsStringAsync();
-            if (!res.IsSuccessStatusCode)
-            {
-                var errorMessage = ParseErrorResponse(textData);
-                throw new Exception(errorMessage);
-            }
-        }
-
-        public async Task<List<ExperienceDTO>> GetExperiences()
-        {
-            var uri = $"{_baseUrl}/products";
-            _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _authString);
-            var content = await _httpClient.GetStringAsync(uri).ConfigureAwait(false);
-            return JsonConvert.DeserializeObject<List<ExperienceDTO>>(content);
-        }
-
-        public async Task PostOrder(OrderDTO order)
-        {
-            var content = JsonConvert.SerializeObject(order);
             string uri = $"{_baseUrl}/ExpectingEndPoint/";
             var res = await _httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")).ConfigureAwait(false);
             var textData = await res.Content.ReadAsStringAsync();

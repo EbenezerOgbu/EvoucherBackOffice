@@ -1,4 +1,104 @@
 ﻿@import "../variables";
 .login{
 
+    border: 0;
+    &__logo-wrapper{
+        margin: 30px 0px 0px 6px
+    }
+
+    &__logo{
+        height: 30px;
+    }
+   
+    &__panel{
+      margin: 100px 0px 0px 40px;
+      width: 430px;
+    }
+    &__panel-header{
+       height: 100px;
+       width: 100%;
+       background-color:$color-background-alt;
+       padding-top: 40px;
+    }
+
+    &__panel-header-title{
+       color: $color-text-alt;
+    }
+
+    &__panel-form{
+       height: 262px;
+       width: 100%;
+       background-color:$color-background;
+       padding: 30px 0px 0px 0px;
+    }
+
+    &__panel-form-input{
+        background-color:$color-background;
+        width: 100%;
+        height: 40px;
+        /*padding: 12px 20px;
+        margin: 12px 0;*/
+        display: inline-block;
+        border-bottom: 1px solid $color-border-alt3;
+        border-radius: 0px;
+        box-sizing: border-box;
+    }
+
+    &__panel-form-item-wrapper{
+          height: 50px;
+          padding: 0px 10px 0px 15px;
+    }
+    &__panel-form-icon-wrapper{
+        float:left;      
+        height:100%;   
+        color:$color-text-alt;
+        padding: 12px 0px 0px 0px;
+    }
+    &__panel-form-input-wrapper{
+        float:right;
+        width:82%;
+        height: 100%;           
+        color: $color-text-alt;
+        padding: 9px 0px 0px 0px;
+    }
+
+    &__panel-form-item-error{
+        width: 100%;
+        height: 20px;
+        margin-top:-10px;
+        margin-left:-60px;
+        display: inline-block;
+        color: $color-text-alert;
+        font-size:12px;
+    }
+
+    &__panel-form-button-wrapper{
+       
+    }
+    &__panel-form-button{
+        color: $color-text-alt3;
+        background-color:$color-background;
+        font-size: 15px; 
+        font-weight: bold; 
+        border:1px solid $color-text-alt; 
+        border-radius:50px;         
+        height:100px; 
+        width: 100px;
+        margin: 0px 0px 0px 0px;
+        &:focus{
+          outline:none;
+        }
+    }
+
+    &__panel-form-button-icon{
+        
+    }
+      
+     &__other-info-wrapper{
+       margin: 110px 0px 0px 60px;
+    }
+
+    &__other-info-title{
+        color: $color-text-alt;
+    }
 }

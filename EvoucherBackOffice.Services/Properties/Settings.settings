@@ -2,37 +2,37 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="EvoucherBackOffice.Services.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="AuthToken" Type="System.String" Scope="User">
+    <Setting Name="AuthToken" Type="System.String" Scope="Application">
       <Value Profile="(Default)">bzy4pVWC7iJItv3d1aHH5PT8MNXPdy7e0li60DYRuRCijVBJFr7eC2XZfTPGJCF7vGG4es0OZl7kiUqBPJg4wrRaHgAvbB7BEwk1GEfpbdynISWWhBqESYlyJ6h6E1x7w4LuxxbrTtLQX0vPI0XM96JLn47PAriqn9c7hC5vJk35nBw15V8J2csOfP9wfVSQGmeYKOMAWrUrlB6krArY6E70kwtKXUtcdO12WYFnQosozSs8pA4KLJw6l6PSuoko</Value>
     </Setting>
-    <Setting Name="ClientId" Type="System.String" Scope="User">
+    <Setting Name="ClientId" Type="System.String" Scope="Application">
       <Value Profile="(Default)">5WVNDZy4sMg8rzkboC9HJStag2hi3lp0fa65kTdHwPe73okUxqtiOXE2Ysa95zPg</Value>
     </Setting>
-    <Setting Name="ClientSecret" Type="System.String" Scope="User">
+    <Setting Name="ClientSecret" Type="System.String" Scope="Application">
       <Value Profile="(Default)">ItwmwGqbtYjkgKl287pqQyxF37wTLy43Y9Ow0fLYASSLbT22nNJ7u6b3qEyHDkCT</Value>
     </Setting>
-    <Setting Name="AuthType" Type="System.String" Scope="User">
+    <Setting Name="AuthType" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Basic</Value>
     </Setting>
-    <Setting Name="AuthContentType" Type="System.String" Scope="User">
+    <Setting Name="AuthContentType" Type="System.String" Scope="Application">
       <Value Profile="(Default)">application/x-www-form-urlencoded</Value>
     </Setting>
-    <Setting Name="AuthEndPoint" Type="System.String" Scope="User">
+    <Setting Name="AuthEndPoint" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://brs-chup-public.uksouth.cloudapp.azure.com/oauth/token</Value>
     </Setting>
-    <Setting Name="UserName" Type="System.String" Scope="User">
+    <Setting Name="UserName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">ogbuce2006@yahoo.com</Value>
     </Setting>
-    <Setting Name="PassWord" Type="System.String" Scope="User">
+    <Setting Name="PassWord" Type="System.String" Scope="Application">
       <Value Profile="(Default)">d74rYvHRHgV6Z24a</Value>
     </Setting>
-    <Setting Name="GrantType" Type="System.String" Scope="User">
+    <Setting Name="GrantType" Type="System.String" Scope="Application">
       <Value Profile="(Default)">password</Value>
     </Setting>
-    <Setting Name="Accept" Type="System.String" Scope="User">
+    <Setting Name="Accept" Type="System.String" Scope="Application">
       <Value Profile="(Default)">application/json</Value>
     </Setting>
-    <Setting Name="HeaderContentType" Type="System.String" Scope="User">
+    <Setting Name="HeaderContentType" Type="System.String" Scope="Application">
       <Value Profile="(Default)">application/json</Value>
     </Setting>
   </Settings>

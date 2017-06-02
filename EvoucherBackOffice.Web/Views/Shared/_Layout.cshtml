@@ -8,8 +8,12 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body class="layout">
-    <div class="layout__body container-fluid">
-        @RenderBody()
+    <div class="layout__body">
+        <div class="container-fluid">
+            <div class="row">
+                @RenderBody()
+            </div>
+        </div>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")

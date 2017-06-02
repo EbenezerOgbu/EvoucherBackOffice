@@ -23,135 +23,102 @@ namespace EvoucherBackOffice.Services.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"bzy4pVWC7iJItv3d1aHH5PT8MNXPdy7e0li60DYRuRCijVBJFr7eC2XZfTPGJCF7vGG4es0OZl7kiUqBPJg4wrRaHgAvbB7BEwk1GEfpbdynISWWhBqESYlyJ6h6E1x7w4LuxxbrTtLQX0vPI0XM96JLn47PAriqn9c7hC5vJk35nBw15V8J2csOfP9wfVSQGmeYKOMAWrUrlB6krArY6E70kwtKXUtcdO12WYFnQosozSs8pA4KLJw6l6PSuoko")]
         public string AuthToken {
             get {
                 return ((string)(this["AuthToken"]));
             }
-            set {
-                this["AuthToken"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("5WVNDZy4sMg8rzkboC9HJStag2hi3lp0fa65kTdHwPe73okUxqtiOXE2Ysa95zPg")]
         public string ClientId {
             get {
                 return ((string)(this["ClientId"]));
             }
-            set {
-                this["ClientId"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("ItwmwGqbtYjkgKl287pqQyxF37wTLy43Y9Ow0fLYASSLbT22nNJ7u6b3qEyHDkCT")]
         public string ClientSecret {
             get {
                 return ((string)(this["ClientSecret"]));
             }
-            set {
-                this["ClientSecret"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Basic")]
         public string AuthType {
             get {
                 return ((string)(this["AuthType"]));
             }
-            set {
-                this["AuthType"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("application/x-www-form-urlencoded")]
         public string AuthContentType {
             get {
                 return ((string)(this["AuthContentType"]));
             }
-            set {
-                this["AuthContentType"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://brs-chup-public.uksouth.cloudapp.azure.com/oauth/token")]
         public string AuthEndPoint {
             get {
                 return ((string)(this["AuthEndPoint"]));
             }
-            set {
-                this["AuthEndPoint"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("ogbuce2006@yahoo.com")]
         public string UserName {
             get {
                 return ((string)(this["UserName"]));
             }
-            set {
-                this["UserName"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("d74rYvHRHgV6Z24a")]
         public string PassWord {
             get {
                 return ((string)(this["PassWord"]));
             }
-            set {
-                this["PassWord"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("password")]
         public string GrantType {
             get {
                 return ((string)(this["GrantType"]));
             }
-            set {
-                this["GrantType"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("application/json")]
         public string Accept {
             get {
                 return ((string)(this["Accept"]));
             }
-            set {
-                this["Accept"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("application/json")]
         public string HeaderContentType {
             get {
                 return ((string)(this["HeaderContentType"]));
-            }
-            set {
-                this["HeaderContentType"] = value;
             }
         }
     }

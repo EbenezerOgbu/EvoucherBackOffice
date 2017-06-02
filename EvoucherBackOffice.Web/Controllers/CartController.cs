@@ -17,12 +17,11 @@ namespace EvoucherBackOffice.Web.Controllers
             _cart = cart;
             _basketViewModel = new BasketViewModel();
         }
-        public RedirectToRouteResult AddToCart(ExperienceViewModel experience)
+        public RedirectToRouteResult AddToCart(BasketItemViewModel basketItem)
         {
-
-            if (experience != null)
+            if (basketItem != null)
             {
-                _cart.AddItem(experience, 1);
+                _cart.AddItem(basketItem.Experience, basketItem.Quantity);
             }
             return RedirectToAction("Checkout");
         }
@@ -58,7 +57,6 @@ namespace EvoucherBackOffice.Web.Controllers
                 return View("Review", _basketViewModel);
             }
             return View(_basketViewModel);
-
         }
 
         public ActionResult ClearBasket()

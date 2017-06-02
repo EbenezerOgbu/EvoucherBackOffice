@@ -26,6 +26,7 @@ namespace EvoucherBackOffice.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/e-voucher-back-office-main.css",
                       "~/Content/bootstrap.css",
+                      "~/Content/fontawesome/font-awesome.css",
                       "~/Content/site.css"));
         }
     }

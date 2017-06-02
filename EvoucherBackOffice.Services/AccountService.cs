@@ -1,7 +1,6 @@
-﻿using EvoucherBackOffice.Services.DTObjects;
+﻿using EvoucherBackOffice.Services.DTObjects.Account;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,16 +19,36 @@ namespace EvoucherBackOffice.Services
             _baseUrl = baseUrl.TrimEnd('/');
             _authString = Properties.Settings.Default.AuthToken;
         }
-        public async Task<List<ExperienceDTO>> GetCategories()
+
+        public async Task Login(LoginDTO login)
         {
-            var uri = $"{_baseUrl}/products";
-            _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _authString);
-            var content = await _httpClient.GetStringAsync(uri).ConfigureAwait(false);
-            return JsonConvert.DeserializeObject<List<ExperienceDTO>>(content);
+            var content = JsonConvert.SerializeObject(login);
+            string uri = $"{_baseUrl}/ExpectingEndPoint/";
+            var res = await _httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")).ConfigureAwait(false);
+            var textData = await res.Content.ReadAsStringAsync();
+            if (!res.IsSuccessStatusCode)
+            {
+                var errorMessage = ParseErrorResponse(textData);
+                throw new Exception(errorMessage);
+            }
         }
-        public async Task PostOrder(OrderDTO order)
+
+        public async Task RequestPasswordReset(ForgotPasswordDTO forgotPassword)
         {
-            var content = JsonConvert.SerializeObject(order);
+            var content = JsonConvert.SerializeObject(forgotPassword);
+            string uri = $"{_baseUrl}/ExpectingEndPoint/";
+            var res = await _httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")).ConfigureAwait(false);
+            var textData = await res.Content.ReadAsStringAsync();
+            if (!res.IsSuccessStatusCode)
+            {
+                var errorMessage = ParseErrorResponse(textData);
+                throw new Exception(errorMessage);
+            }
+        }
+
+        public async Task ResetPassword(ResetPasswordDTO resetPassword)
+        {
+            var content = JsonConvert.SerializeObject(resetPassword);
             string uri = $"{_baseUrl}/ExpectingEndPoint/";
             var res = await _httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")).ConfigureAwait(false);
             var textData = await res.Content.ReadAsStringAsync();
