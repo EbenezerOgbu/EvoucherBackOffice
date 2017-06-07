@@ -25,11 +25,11 @@
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <div class="confirm-voucher__panel-form-input-wrapper">
-                                        @Html.TextBoxFor(m => m.VoucherNumber, new { @class = "confirm-voucher__panel-form-input form-control", placeholder = "e-mail address", type = "text" })
+                                        @Html.TextBoxFor(m => m.VoucherToken, new { @class = "confirm-voucher__panel-form-input form-control", placeholder = "e-mail address", type = "text" })
                                     </div>
                                 </div>
                                 <div class="confirm-voucher__panel-form-item-error col-md-12">
-                                    @Html.ValidationMessageFor(m => m.VoucherNumber)
+                                    @Html.ValidationMessageFor(m => m.VoucherToken)
                                 </div>
                             </div>
                             <div class="text-center">

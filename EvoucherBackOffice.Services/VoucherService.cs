@@ -20,30 +20,30 @@ namespace EvoucherBackOffice.Services
             _authString = Properties.Settings.Default.AuthToken;
         }
 
-        public async Task<VoucherDetailDTO> ConfirmVoucher(ConfirmVoucherDTO confirmVoucher)
+        public async Task<VoucherDetailDTO> GetVoucher(string token)
         {
-            var uri = $"{_baseUrl}/products";
+            var uri = $"{_baseUrl}/vouchers/{token}";
             _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _authString);
             var content = await _httpClient.GetStringAsync(uri).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<VoucherDetailDTO>(content);
         }
-        public async Task RedeemVoucher(RedeemVoucherDTO redeemVoucher)
+        public async Task<VoucherDetailDTO> RedeemVoucher(string token)
         {
-            var content = JsonConvert.SerializeObject(redeemVoucher);
-            string uri = $"{_baseUrl}/ExpectingEndPoint/";
-            var res = await _httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")).ConfigureAwait(false);
+            string uri = $"{_baseUrl}/vouchers/{token}/redeem";
+            var res = await _httpClient.PostAsync(uri, new StringContent("", Encoding.UTF8, "application/json")).ConfigureAwait(false);
             var textData = await res.Content.ReadAsStringAsync();
-            if (!res.IsSuccessStatusCode)
+            if (res.IsSuccessStatusCode)
             {
-                var errorMessage = ParseErrorResponse(textData);
-                throw new Exception(errorMessage);
+                return JsonConvert.DeserializeObject<VoucherDetailDTO>(textData);
             }
+            var errorMessage = ParseErrorResponse(textData);
+            throw new Exception(errorMessage);
         }
 
-        public async Task<VoucherDetailDTO> PostOrder(OrderDTO order)
+        public async Task<VoucherDetailDTO> CreateVoucher(CreateVoucherDTO createVoucher)
         {
-            var content = JsonConvert.SerializeObject(order);
-            string uri = $"{_baseUrl}/ExpectingEndPoint/";
+            var content = JsonConvert.SerializeObject(createVoucher);
+            string uri = $"{_baseUrl}/vouchers";
             var res = await _httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")).ConfigureAwait(false);
             var textData = await res.Content.ReadAsStringAsync();
             if (res.IsSuccessStatusCode)

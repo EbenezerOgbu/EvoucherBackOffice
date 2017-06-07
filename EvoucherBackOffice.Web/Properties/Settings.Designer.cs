@@ -25,10 +25,19 @@ namespace EvoucherBackOffice.Web.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://brs-chup-public.uksouth.cloudapp.azure.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://brs-chup-public.uksouth.cloudapp.azure.com/v1")]
         public string ApiUrl {
             get {
                 return ((string)(this["ApiUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DISCOUNT_VOUCHER")]
+        public string VoucherTypeId {
+            get {
+                return ((string)(this["VoucherTypeId"]));
             }
         }
     }

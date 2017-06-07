@@ -1,9 +1,6 @@
 ﻿using EvoucherBackOffice.Web.Models;
 using EvoucherBackOffice.Web.ViewModel;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace EvoucherBackOffice.Web.Controllers
@@ -50,8 +47,7 @@ namespace EvoucherBackOffice.Web.Controllers
                 {
                     _cart.AdjustQuantity(_basketViewModel.Quantity);
                 }
-
-           
+                       
                 _basketViewModel.Experience = _cart.Line.Experience;
                 _basketViewModel.LineTotal = _cart.ComputeTotalValue();
 

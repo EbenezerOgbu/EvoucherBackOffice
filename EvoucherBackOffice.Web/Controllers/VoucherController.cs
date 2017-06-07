@@ -1,5 +1,4 @@
 ﻿using EvoucherBackOffice.Services;
-using EvoucherBackOffice.Services.DTObjects;
 using EvoucherBackOffice.Services.DTObjects.Voucher;
 using EvoucherBackOffice.Web.ViewModel;
 using System;
@@ -18,28 +17,33 @@ namespace EvoucherBackOffice.Web.Controllers
         }
         public ActionResult ConfirmVoucher()
         {
-            return View();
+            var model = new ConfirmVoucherViewModel();
+            return View(model);
         }
         [HttpPost]
-        public ActionResult ConfirmVoucher(ConfirmVoucherViewModel confirmVoucherViewModel)
+        public ActionResult ConfirmVoucher(ConfirmVoucherViewModel confirmVoucher)
         {
             try
             {
-                var confirmVoucher = new ConfirmVoucherDTO
+                if (string.IsNullOrEmpty(confirmVoucher.VoucherToken))
                 {
-                    voucherNumber = confirmVoucherViewModel.VoucherNumber
-                };
-                var voucherDetail = _voucherService.ConfirmVoucher(confirmVoucher).Result;
-                var model = new VoucherDetailViewModel
+                    var voucherDetail = _voucherService.GetVoucher(confirmVoucher.VoucherToken).Result;
+                    var model = new VoucherDetailViewModel
+                    {
+                        VoucherToken = voucherDetail.voucherToken,
+                        VoucherDescription = voucherDetail.voucherDescription,
+                        Name = voucherDetail.name,
+                        VoucherPurchasedOn = voucherDetail.voucherPurchasedOn,
+                        UsedOn = voucherDetail.usedOn
+                    };
+                    _voucherDetailViewModel = model;
+                    return RedirectToAction("DisplayVoucher");
+                }
+                else
                 {
-                    VoucherCode = voucherDetail.voucherCode,
-                    VoucherDescription = voucherDetail.voucherDescription,
-                    Name = voucherDetail.name,
-                    VoucherPurchasedOn = voucherDetail.voucherPurchasedOn,
-                    UsedOn = voucherDetail.usedOn
-                };
-                _voucherDetailViewModel = model;
-                return RedirectToAction("DisplayVoucher");
+                    ModelState.AddModelError("", "there is a problem with this operation.");
+                    return View();
+                }                             
             }
             catch (Exception)
             {
@@ -52,16 +56,20 @@ namespace EvoucherBackOffice.Web.Controllers
             return View(_voucherDetailViewModel);
         }
     
-        public ActionResult RedeemVoucher(VoucherDetailViewModel voucherDetailViewModel)
+        public ActionResult RedeemVoucher(VoucherDetailViewModel voucherDetail)
         {
             try
             {
-                var redeemVoucher = new RedeemVoucherDTO
+                if (voucherDetail != null)
                 {
-                    voucherNumber = voucherDetailViewModel.VoucherCode
-                };
-                _voucherService.RedeemVoucher(redeemVoucher);
-                return View();
+                    _voucherService.RedeemVoucher(voucherDetail.VoucherToken);
+                    return View();
+                }
+                else
+                {
+                    ModelState.AddModelError("", "there is a problem with this operation.");
+                    return View();
+                }       
             }
             catch (Exception)
             {
@@ -98,24 +106,18 @@ namespace EvoucherBackOffice.Web.Controllers
 
         private void CreateAndPostOrder(IVoucherService voucherService)
         {
-            var customerDetail = new CustomerDetailDTO
+            var createVoucher = new CreateVoucherDTO
             {
-                FirstName = _basketViewModel.CustomerDetail.FirstName,
-                FamilyName = _basketViewModel.CustomerDetail.SecondName,
-                Email = _basketViewModel.CustomerDetail.Email
+               vouchertypeId = Properties.Settings.Default.VoucherTypeId,
+               maxRedemptions = 0,
+               firstName = _basketViewModel.CustomerDetail.FirstName,
+               lastName = _basketViewModel.CustomerDetail.SecondName,
+               email = _basketViewModel.CustomerDetail.Email
             };
-            var order = new OrderDTO
-            {
-                Code = _basketViewModel.Experience.Code,
-                Qty = _basketViewModel.Quantity,
-                Amount = _basketViewModel.LineTotal,
-                CreatedOn = DateTime.Now,
-                CustomerDetail = customerDetail
-            };
-            var voucherDetail =  voucherService.PostOrder(order).Result;
+            var voucherDetail =  voucherService.CreateVoucher(createVoucher).Result;
             var model = new VoucherDetailViewModel
             {
-                VoucherCode = voucherDetail.voucherCode,
+                VoucherToken = voucherDetail.voucherToken,
                 VoucherDescription = voucherDetail.voucherDescription,
                 Name = voucherDetail.name,
                 VoucherPurchasedOn = voucherDetail.voucherPurchasedOn,

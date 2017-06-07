@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace EvoucherBackOffice.Services.DTObjects.Voucher
 {
-    public class ConfirmVoucherDTO
+    public class AttributeDTO
     {
-        public string voucherNumber { get; set; }
+       public string attributeId { get; set; }
+       public string value { get; set; }
     }
 }
