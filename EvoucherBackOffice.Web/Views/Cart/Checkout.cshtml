@@ -1,0 +1,70 @@
+﻿@model EvoucherBackOffice.Web.ViewModel.BasketViewModel
+@{
+    ViewBag.Title = "Add Customer Info";
+}
+
+<section class="checkout">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="checkout__panel">
+                    <div class="checkout__panel-header text-center">
+                        <div>
+                            <h6 class="checkout__panel-header-title">New Voucher</h6>
+                        </div>
+                        <div>
+                            <h6></h6>
+                        </div>
+                    </div>
+                    <div class="checkout__panel-body">
+                        <div class="checkout__panel-form">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(m => m.CustomerDetail.FirstName, new { @class = "checkout__panel-form-item form-control", placeholder = "Customer's First Name" })
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="checkout__panel-form-item-error">
+                                            @Html.ValidationMessageFor(m => m.CustomerDetail.FirstName)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(m => m.CustomerDetail.SecondName, new { @class = "checkout__panel-form-item form-control", placeholder = "Customer's Second Name" })
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="checkout__panel-form-item-error">
+                                            @Html.ValidationMessageFor(m => m.CustomerDetail.SecondName)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(m => m.CustomerDetail.Email, new { @class = "checkout__panel-form-item form-control", placeholder = "Customer's Email Address" })
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="checkout__panel-form-item-error">
+                                            @Html.ValidationMessageFor(m => m.CustomerDetail.Email)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="checkout__panel-form-button-wrapper">
+                                        <input class="checkout__panel-form-button-1" type="submit" value="USE LATER" />
+                                        <input class="checkout__panel-form-button-2" type="submit" value="USE NOW" />
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

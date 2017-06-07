@@ -61,6 +61,7 @@
     <Compile Include="DTObjects\Voucher\OrderDTO.cs" />
     <Compile Include="DTObjects\Account\ResetPasswordDTO.cs" />
     <Compile Include="DTObjects\Voucher\RedeemVoucherDTO.cs" />
+    <Compile Include="DTObjects\Voucher\VoucherDetailDTO.cs" />
     <Compile Include="ExperienceService.cs" />
     <Compile Include="IAccountService.cs" />
     <Compile Include="IExperienceService.cs" />

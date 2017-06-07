@@ -1,17 +1,75 @@
-﻿
+﻿@model EvoucherBackOffice.Web.ViewModel.VoucherDetailViewModel
 @{
-    ViewBag.Title = "DisplayVoucher";
+    ViewBag.Title = "Redeem Voucher";
 }
 
-<section>
-    <div>
-        <div>
-            <h5>Redeem Voucher</h5>
-            <div></div>
-        </div>
-        <div>
+<section class="display-voucher">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div class="display-voucher__panel">
+                    <div class="display-voucher__panel-header text-center">
+                        <div>
+                            <h6 class="display-voucher__panel-header-title">Redeem Voucher</h6>
+                        </div>
+                        <div>
+                            <h6></h6>
+                        </div>
+                    </div>
+                    <div class="display-voucher__panel-body">
+                        <div class="display-voucher__panel-section-wrapper">
+                            <div class="display-voucher__panel-item col-md-12">
+                                <p class="display-voucher__panel-item-title">
+                                    <span class="display-voucher__panel-item-key">Voucher code: </span>
+                                    <span class="display-voucher__panel-item-value">@*@Model.VoucherCode*@000343034</span>
+                                </p>
+                            </div>
 
+                            <div class="display-voucher__panel-item col-md-12">
+                                <p class="display-voucher__panel-item-title">
+                                    <span class="display-voucher__panel-item-key">Voucher description: </span>
+                                    <span class="display-voucher__panel-item-value">@*@Model.VoucherDescription*@3 Day VIP Voucher</span>
+                                </p>
+                            </div>
+
+                            <div class="display-voucher__panel-item col-md-12">
+                                <p class="display-voucher__panel-item-title">
+                                    <span class="display-voucher__panel-item-key">Name: </span>
+                                    <span class="display-voucher__panel-item-value">@*@Model.Name*@ John Smith</span>
+                                </p>
+                            </div>
+
+                            <div class="display-voucher__panel-line-wrapper">
+                                <hr class="display-voucher__panel-line" />
+                            </div>
+
+                            <div class="display-voucher__panel-item col-md-12">
+                                <p class="display-voucher__panel-item-title">
+                                    <span class="display-voucher__panel-item-key">Voucher purchased on: </span>
+                                    <span class="display-voucher__panel-item-value">@*@Model.VoucherPurchasedOn*@January 15, 2017</span>
+                                </p>
+                            </div>
+
+                            <div class="display-voucher__panel-item col-md-12">
+                                <p class="display-voucher__panel-item-title">
+                                    <span class="display-voucher__panel-item-key">Used on:</span>
+                                    <br />
+                                    <div>
+                                        <span class="display-voucher__panel-item-value">
+                                            @*@Model.UsedOn*@March 25, 2017 at 10.30 am<br />April2, 2017 at 15.30
+                                        </span>
+                                    </div>
+                                </p>
+                            </div>
+                            <div class="text-center">
+                                <a href="@Url.Action("RedeemVoucher", "Voucher", Model)">
+                                    <input class="display-voucher__panel-button" type="submit" value="CONFIRM" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-

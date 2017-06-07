@@ -20,17 +20,12 @@ namespace EvoucherBackOffice.Services
             _authString = Properties.Settings.Default.AuthToken;
         }
 
-        public async Task ConfirmVoucher(ConfirmVoucherDTO confirmVoucher)
+        public async Task<VoucherDetailDTO> ConfirmVoucher(ConfirmVoucherDTO confirmVoucher)
         {
-            var content = JsonConvert.SerializeObject(confirmVoucher);
-            string uri = $"{_baseUrl}/ExpectingEndPoint/";
-            var res = await _httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")).ConfigureAwait(false);
-            var textData = await res.Content.ReadAsStringAsync();
-            if (!res.IsSuccessStatusCode)
-            {
-                var errorMessage = ParseErrorResponse(textData);
-                throw new Exception(errorMessage);
-            }
+            var uri = $"{_baseUrl}/products";
+            _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _authString);
+            var content = await _httpClient.GetStringAsync(uri).ConfigureAwait(false);
+            return JsonConvert.DeserializeObject<VoucherDetailDTO>(content);
         }
         public async Task RedeemVoucher(RedeemVoucherDTO redeemVoucher)
         {
@@ -43,6 +38,20 @@ namespace EvoucherBackOffice.Services
                 var errorMessage = ParseErrorResponse(textData);
                 throw new Exception(errorMessage);
             }
+        }
+
+        public async Task<VoucherDetailDTO> PostOrder(OrderDTO order)
+        {
+            var content = JsonConvert.SerializeObject(order);
+            string uri = $"{_baseUrl}/ExpectingEndPoint/";
+            var res = await _httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")).ConfigureAwait(false);
+            var textData = await res.Content.ReadAsStringAsync();
+            if (res.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<VoucherDetailDTO>(textData);
+            }
+            var errorMessage = ParseErrorResponse(textData);
+            throw new Exception(errorMessage);
         }
 
         private static string ParseErrorResponse(string response)

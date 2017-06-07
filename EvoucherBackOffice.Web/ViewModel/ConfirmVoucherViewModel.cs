@@ -7,5 +7,6 @@ namespace EvoucherBackOffice.Web.ViewModel
 {
     public class ConfirmVoucherViewModel
     {
+        public string VoucherNumber { get; set; }
     }
 }

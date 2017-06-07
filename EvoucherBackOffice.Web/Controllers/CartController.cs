@@ -17,12 +17,15 @@ namespace EvoucherBackOffice.Web.Controllers
             _cart = cart;
             _basketViewModel = new BasketViewModel();
         }
-        public RedirectToRouteResult AddToCart(BasketItemViewModel basketItem)
+        public RedirectToRouteResult AddToCart(List<BasketItemViewModel> basketItems)
         {
-            if (basketItem != null)
+            foreach (var item in basketItems)
             {
-                _cart.AddItem(basketItem.Experience, basketItem.Quantity);
-            }
+                if (item.Quantity > 0)
+                {
+                    _cart.AddItem(item.Experience, item.Quantity);
+                }
+            }            
             return RedirectToAction("Checkout");
         }
 
@@ -39,7 +42,7 @@ namespace EvoucherBackOffice.Web.Controllers
         }
 
         [HttpPost]
-        public ViewResult Checkout(string returnUrl, FormCollection collection)
+        public ActionResult Checkout(FormCollection collection)
         {
             if (TryUpdateModel(_basketViewModel))
             {
@@ -48,13 +51,13 @@ namespace EvoucherBackOffice.Web.Controllers
                     _cart.AdjustQuantity(_basketViewModel.Quantity);
                 }
 
-                _basketViewModel.ReturnUrl = returnUrl;
+           
                 _basketViewModel.Experience = _cart.Line.Experience;
                 _basketViewModel.LineTotal = _cart.ComputeTotalValue();
 
                 HttpContext.Session["basket"] = _basketViewModel;
 
-                return View("Review", _basketViewModel);
+                return RedirectToAction("ClearBasket");
             }
             return View(_basketViewModel);
         }
@@ -62,7 +65,7 @@ namespace EvoucherBackOffice.Web.Controllers
         public ActionResult ClearBasket()
         {
             _cart.Clear();
-            return RedirectToAction("List", "Experience", new { area = "" });
+            return RedirectToAction("PostNewOrder", "Voucher", new { area = "" });
         }
     }
 }

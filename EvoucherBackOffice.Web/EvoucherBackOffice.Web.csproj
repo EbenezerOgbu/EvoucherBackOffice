@@ -200,9 +200,7 @@
     <Content Include="sass\home\home-index.scss" />
     <Content Include="sass\shared\layout.scss" />
     <Content Include="sass\voucher\confirm-voucher.scss" />
-    <Content Include="sass\voucher\create-voucher.scss" />
     <Content Include="sass\voucher\redeem-voucher.scss" />
-    <Content Include="sass\voucher\voucher-list.scss" />
     <Content Include="sass\voucher\voucher-not-found.scss" />
     <Content Include="Content\fonts\FontAwesome.otf" />
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
@@ -213,6 +211,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="sass\shared\experience-summary.scss" />
+    <Content Include="sass\Experience\experiences.scss" />
+    <Content Include="sass\voucher\display-voucher.scss" />
+    <Content Include="sass\home\error-page.scss" />
+    <Content Include="sass\shared\logo-section.scss" />
+    <Content Include="sass\cart\checkout.scss" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -246,7 +250,6 @@
     <Content Include="Views\Voucher\ConfirmVoucher.cshtml" />
     <Content Include="Views\Voucher\RedeemVoucher.cshtml" />
     <Content Include="Views\Voucher\VoucherNotFound.cshtml" />
-    <Content Include="Views\Voucher\CreateVoucher.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
@@ -255,10 +258,13 @@
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Voucher\DisplayVoucher.cshtml" />
     <Content Include="Views\Experience\Experiences.cshtml" />
+    <Content Include="Views\Shared\_ExperienceSummary.cshtml" />
+    <Content Include="Views\Cart\Checkout.cshtml" />
+    <Content Include="Views\Shared\_Logo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Cart\" />
+    <Folder Include="Scripts\EvoucherBackOffice\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

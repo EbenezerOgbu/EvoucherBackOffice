@@ -7,9 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-5">
-                <div class="login__logo-wrapper">
-                    <img class="login__logo" src="~/Images/1b368effb130385264a163007d7931df.png" alt="Logo">
-                </div>
+                @Html.Partial("_Logo")
             </div>
             <div class="col-md-6 offset-md-3">
                 <div class="login__panel text-center">
@@ -60,7 +58,7 @@
             </div>
             <div class="col-md-6 offset-md-3">
                 <div class="login__other-info-wrapper text-center">
-                    <a href="#">
+                    <a href="@Url.Action("ForgotPassword", "Account", null)">
                         <h6 class="login__other-info-title">Forgot Password?</h6>
                     </a>
                 </div>

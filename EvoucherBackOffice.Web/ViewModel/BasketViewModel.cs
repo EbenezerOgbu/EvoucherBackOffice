@@ -14,6 +14,5 @@ namespace EvoucherBackOffice.Web.ViewModel
         public decimal LineTotal { get; set; }
         public ExperienceViewModel Experience { get; set; }
         public CustomerDetailViewModel CustomerDetail { get; set; }
-        public string ReturnUrl { get; set; }
     }
 }

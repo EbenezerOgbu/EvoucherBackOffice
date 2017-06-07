@@ -6,9 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-5">
-                <div class="home-index__logo-wrapper">
-                    <img class="home-index__logo" src="~/Images/1b368effb130385264a163007d7931df.png" alt="Logo">
-                </div>
+                @Html.Partial("_Logo")
             </div>
             <div class="col-md-6 offset-md-3">
                 <div class="home-index__panel text-center">
@@ -27,15 +25,15 @@
                                     <h6 class="home-index__panel-section-title">REDEEM EXISTING VOUCHER</h6>
                                 </div>
                                 <div class="text-center">
-                                    <button class="home-index__panel-section-button">
-                                        <span class="fa fa-arrow-right fa-3x fa-inverse"></span>
-                                    </button>
+                                    <a class="home-index__panel-section-button-link" href="@Url.Action("ConfirmVoucher", "Voucher", null)">                                      
+                                        <span class="home-index__panel-section-button fa fa-arrow-right fa-3x fa-inverse"></span>                                      
+                                    </a>
                                 </div>
                             </div>
                         </div>
                        
                         <div>
-                            <hr  class="home-index__panel-section-line"/>
+                            <hr  class="home-index__panel-section-line"/> 
                         </div>
 
                         <div class="col-md-12">
@@ -44,9 +42,9 @@
                                     <h6 class="home-index__panel-section-title">CREATE NEW VOUCHERS</h6>
                                 </div>
                                 <div class="text-center">
-                                    <button class="home-index__panel-section-button">
-                                        <span class="fa fa-arrow-right fa-3x fa-inverse"></span>
-                                    </button>
+                                    <a class="home-index__panel-section-button-link" href="@Url.Action("CreateNewVoucher", "Voucher", null)">
+                                        <span class="home-index__panel-section-button fa fa-arrow-right fa-3x fa-inverse"></span>
+                                    </a>
                                 </div>
                             </div>
                         </div>

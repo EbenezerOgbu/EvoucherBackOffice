@@ -6,11 +6,19 @@
 @import "../../sass/account/reset-password";
 //Home
 @import "../../sass/home/home-index";
+@import "../../sass/home/error-page";
 //Shared
 @import "../../sass/shared/layout";
+@import "../../sass/shared/experience-summary";
+@import "../../sass/shared/logo-section";
+
+//Experiences
+@import "../../sass/Experience/experiences";
 //Voucher
 @import "../../sass/voucher/confirm-voucher";
-@import "../../sass/voucher/create-voucher";
 @import "../../sass/voucher/redeem-voucher";
-@import "../../sass/voucher/voucher-list";
+@import "../../sass/voucher/display-voucher";
 @import "../../sass/voucher/voucher-not-found";
+
+//Cart
+@import "../../sass/cart/checkout";

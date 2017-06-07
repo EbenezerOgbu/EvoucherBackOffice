@@ -20,43 +20,46 @@ namespace EvoucherBackOffice.Services
             _authString = Properties.Settings.Default.AuthToken;
         }
 
-        public async Task Login(LoginDTO login)
+        public async Task<string> Login(LoginDTO login)
         {
             var content = JsonConvert.SerializeObject(login);
             string uri = $"{_baseUrl}/ExpectingEndPoint/";
             var res = await _httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")).ConfigureAwait(false);
             var textData = await res.Content.ReadAsStringAsync();
-            if (!res.IsSuccessStatusCode)
+            if (res.IsSuccessStatusCode)
             {
-                var errorMessage = ParseErrorResponse(textData);
-                throw new Exception(errorMessage);
+                return JsonConvert.DeserializeObject<string>(textData);
             }
+            var errorMessage = ParseErrorResponse(textData);
+            throw new Exception(errorMessage);
         }
 
-        public async Task RequestPasswordReset(ForgotPasswordDTO forgotPassword)
+        public async Task<bool> RequestPasswordReset(ForgotPasswordDTO forgotPassword)
         {
             var content = JsonConvert.SerializeObject(forgotPassword);
             string uri = $"{_baseUrl}/ExpectingEndPoint/";
             var res = await _httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")).ConfigureAwait(false);
             var textData = await res.Content.ReadAsStringAsync();
-            if (!res.IsSuccessStatusCode)
+            if (res.IsSuccessStatusCode)
             {
-                var errorMessage = ParseErrorResponse(textData);
-                throw new Exception(errorMessage);
+                return JsonConvert.DeserializeObject<bool>(textData);
             }
+            var errorMessage = ParseErrorResponse(textData);
+            throw new Exception(errorMessage);
         }
 
-        public async Task ResetPassword(ResetPasswordDTO resetPassword)
+        public async Task<bool> ResetPassword(ResetPasswordDTO resetPassword)
         {
             var content = JsonConvert.SerializeObject(resetPassword);
             string uri = $"{_baseUrl}/ExpectingEndPoint/";
             var res = await _httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")).ConfigureAwait(false);
             var textData = await res.Content.ReadAsStringAsync();
-            if (!res.IsSuccessStatusCode)
+            if (res.IsSuccessStatusCode)
             {
-                var errorMessage = ParseErrorResponse(textData);
-                throw new Exception(errorMessage);
+                return JsonConvert.DeserializeObject<bool>(textData);
             }
+            var errorMessage = ParseErrorResponse(textData);
+            throw new Exception(errorMessage);
         }
         private static string ParseErrorResponse(string response)
         {

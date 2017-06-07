@@ -1,0 +1,81 @@
+﻿@import "../variables";
+.checkout{
+     margin: 70px 0px 0px 450px;
+    @media screen and (max-width: 1024px) {
+      margin:0px;
+    }
+    &__panel{
+       margin: 35px 0px 0px 90px; 
+       width: 812px;
+    }
+
+    &__panel-header{
+       height: 100px;
+       width: 100%;
+       background-color:$color-background-alt;
+       padding-top: 40px; 
+    }
+
+    &__panel-header-title{
+         color: $color-text-alt;
+    }
+
+    &__panel-body{
+       height: 620px;
+       width: 100%;
+       background-color:$color-background;
+       padding: 40px 20px 0px 20px;
+    }
+
+    &__panel-form{
+       color: $color-text-alt; 
+    }
+
+    &__panel-form-item{
+        width: 100%;
+        height: 50px;
+        padding: 12px 20px;
+        margin: 12px 0;
+        display: inline-block;
+        border: 1px solid $color-border-alt3;
+        border-radius: 0px;
+        box-sizing: border-box;
+    }
+
+    &__panel-form-item-error{
+
+    }
+
+    &__panel-form-button-wrapper{
+         margin: 90px 0px 0px 0px;
+    }
+
+    &__panel-form-button-1{
+        color: $color-text-alt;
+        background-color:$color-button-alt2;
+        font-size: 15px; 
+        font-weight:100;        
+        height:60px; 
+        width: 160px;
+        margin: 35px 35px 0px 0px;
+        border:none;
+        &:focus{
+          outline:none;
+        }
+    }
+
+    &__panel-form-button-2{
+        color: $color-text-alt;
+        background-color:$color-button;
+        font-size: 15px; 
+        font-weight:100;        
+        height:60px; 
+        width: 160px;
+        margin: 35px 35px 0px 0px;
+         border:none;
+        &:focus{
+          outline:none;
+        }
+    }
+
+}

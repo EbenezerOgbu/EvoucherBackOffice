@@ -1,0 +1,58 @@
+﻿@import "../variables";
+@import "../mixins";
+.experiences{
+    margin: 70px 0px 0px 450px;
+    @media screen and (max-width: 1024px) {
+      margin:0px;
+    }
+    &__panel{
+       margin: 35px 0px 0px 10px; 
+       width: 975px; 
+    }
+
+    &__panel-header{
+       height: 100px;
+       width: 100%;
+       background-color:$color-background-alt;
+       padding-top: 40px; 
+    }
+
+    &__panel-header-title{
+       color: $color-text-alt;
+    }
+
+    &__panel-body{
+       height: 620px;
+       width: 100%;
+       background-color:$color-background;
+       padding: 23px 20px 0px 20px;
+    }
+
+    &__panel-section-wrapper{
+         color: $color-text-alt;    
+    }
+
+    &__panel-line{
+         border:1px solid $color-background-alt2
+    }
+
+    &__panel-line-wrapper{
+         width: 100%;
+         padding: 0px 3px 0px 0px;
+         margin: 25px 0px 25px 0px;
+    }
+
+    &__panel-button{
+        color: $color-text-alt;
+        background-color:$color-button;
+        font-size: 15px; 
+        font-weight:100;        
+        height:50px; 
+        width: 150px;
+        margin: 30px 3px 0px 0px;
+        cursor: pointer;
+        &:focus{
+          outline:none;
+        }
+    }
+}

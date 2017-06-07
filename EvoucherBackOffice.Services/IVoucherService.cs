@@ -7,7 +7,8 @@ namespace EvoucherBackOffice.Services
 {
     public interface IVoucherService
     {
-        Task ConfirmVoucher(ConfirmVoucherDTO confirmVoucher);
+        Task<VoucherDetailDTO> ConfirmVoucher(ConfirmVoucherDTO confirmVoucher);
         Task RedeemVoucher(RedeemVoucherDTO redeemVoucher);
+        Task<VoucherDetailDTO> PostOrder(OrderDTO order);
     }
 }

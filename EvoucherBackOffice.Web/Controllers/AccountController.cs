@@ -1,5 +1,7 @@
 ﻿using EvoucherBackOffice.Services;
+using EvoucherBackOffice.Services.DTObjects.Account;
 using EvoucherBackOffice.Web.ViewModel.Account;
+using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -17,15 +19,38 @@ namespace EvoucherBackOffice.Web.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(LoginViewModel model, string returnUrl)
+        public ActionResult Login(FormCollection collection)
         {
             try
             {
-                return View();
+                var loginViewModel = new LoginViewModel();
+                if (TryUpdateModel(loginViewModel))
+                {
+                    var loginDTO = new LoginDTO
+                    {
+                        Email = loginViewModel.Email,
+                        Password = loginViewModel.Password
+                    };
+                    var authToken =  _accountService.Login(loginDTO).Result;
+                    if (!string.IsNullOrEmpty(authToken))
+                    {
+                        return RedirectToAction("Index", "Home", new { area = "" });
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "there is a problem with this operation.");
+                        return View();
+                    }
+                }
+                else
+                {
+                    return View();
+                }
             }
-            catch (System.Exception)
+            catch (Exception)
             {
-                throw;
+                ModelState.AddModelError("", "This operation could not be completed, please try again.");
+                return View();
             }           
         }
 
@@ -36,59 +61,93 @@ namespace EvoucherBackOffice.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        public async Task<ActionResult> ForgotPassword(FormCollection collection)
         {
             try
             {
-                if (ModelState.IsValid)
+                var forgotPasswordViewModel = new ForgotPasswordViewModel();
+                if (TryUpdateModel(forgotPasswordViewModel))
                 {
-
+                    var forgotPasswordDTO = new ForgotPasswordDTO
+                    {
+                        Email = forgotPasswordViewModel.Email,                      
+                    };
+                    var response = _accountService.RequestPasswordReset(forgotPasswordDTO).Result;
+                    if (response)
+                    {
+                        return RedirectToAction("ForgotPasswordConfirmation");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "There is a problem with this operation.");
+                        return View();
+                    }
                 }
-
-                return View(model);
+                else
+                {
+                    return View();
+                }
             }
-            catch (System.Exception)
+            catch (Exception)
             {
-                throw;
-            }       
+                ModelState.AddModelError("", "This operation could not be completed, please try again.");
+                return View();
+            }
         }
 
         public ActionResult ForgotPasswordConfirmation()
         {
-            try
-            {
-                return View();
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }           
+            return View();
         }
 
         public ActionResult ResetPassword(string code)
         {
-            try
+            if (!string.IsNullOrEmpty(code))
             {
-                return code == null ? View("Error") : View();
+                HttpContext.Session["resetcode"] = code;
             }
-            catch (System.Exception)
-            {
-                throw;
-            }      
+            var model = new ResetPasswordViewModel();
+            return View(model);  
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
+        public async Task<ActionResult> ResetPassword(FormCollection collection)
         {
             try
             {
+                var resetcode = (string)HttpContext.Session["resetcode"];
+                var resetPasswordViewModel = new ResetPasswordViewModel();
+                if (TryUpdateModel(resetPasswordViewModel))
+                {
+                    var resetPasswordDTO = new ResetPasswordDTO
+                    {
+                        Email = resetPasswordViewModel.Email,
+                        Password = resetPasswordViewModel.Password,
+                        ConfirmPassword = resetPasswordViewModel.ConfirmPassword,
+                        Code = resetcode                     
+                    };
+                    var response = _accountService.ResetPassword(resetPasswordDTO).Result;
+                    if (response)
+                    {
+                        return RedirectToAction("ResetPasswordConfirmation");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "There is a problem with this operation.");
+                        return View();
+                    }
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("", "This operation could not be completed, please try again.");
                 return View();
             }
-            catch (System.Exception)
-            {
-                throw;
-            }        
         }
 
         public ActionResult ResetPasswordConfirmation()

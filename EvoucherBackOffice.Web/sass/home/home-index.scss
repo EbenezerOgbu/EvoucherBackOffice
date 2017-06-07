@@ -1,12 +1,8 @@
 ﻿@import "../variables";
 .home-index{
-
-    &__logo-wrapper{
-        margin: 30px 0px 0px 6px
-    }
-
-    &__logo{
-        height: 30px;
+    margin: 58px 0px 0px 405px;
+    @media screen and (max-width: 1024px) {
+      margin:0px;
     }
 
     &__panel{
@@ -52,8 +48,20 @@
         height:100px; 
         width: 100px;
         margin: 30px 0px 0px 0px;
+        padding: 25px 0px 0px 0px;
         &:focus{
           outline:none;
+        }
+    }
+
+     &__panel-section-button-link{
+           border-radius:100px;         
+        height:100px; 
+        width: 100px;
+         box-sizing:border-box;
+
+        &:hover{
+            text-decoration:none;
         }
     }
 

@@ -8,5 +8,6 @@ namespace EvoucherBackOffice.Services.DTObjects.Voucher
 {
     public class RedeemVoucherDTO
     {
+        public string voucherNumber { get; set; }
     }
 }

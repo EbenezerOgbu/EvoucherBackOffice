@@ -3,4 +3,28 @@
     ViewBag.Title = "Error";
 }
 
+<section class="error-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-5">
+                @Html.Partial("_Logo")
+            </div>
+            <div class="col-md-6 offset-md-3">
+                <div class="error-page__panel text-center">
+                    <div class="error-page__panel-header">
+                        <div>
+                            <h5 class="error-page__panel-header-title">Error Message</h5>
+                        </div>
+                        <div>
+                            <h6></h6>
+                        </div>
+                    </div>
+                    <div class="error-page__panel-body">
+                        <p class="error-page__panel-message">An error occurred while processing your request. Please try again.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 

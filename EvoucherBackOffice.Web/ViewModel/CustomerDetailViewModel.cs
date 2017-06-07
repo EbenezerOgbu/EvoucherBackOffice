@@ -8,18 +8,13 @@ namespace EvoucherBackOffice.Web.ViewModel
         [Required(ErrorMessage = "Please enter a first name.")]
         [RegularExpression(@"^[a-zA-Z''-'\s]{1,50}$", ErrorMessage = "Invalid First Name.")]
         public string FirstName { get; set; }
-        [Display(Name = "Family Name")]
-        [Required(ErrorMessage = "Please enter a family name.")]
-        [RegularExpression(@"^[a-zA-Z''-'\s]{1,50}$", ErrorMessage = "Invalid Family Name.")]
-        public string FamilyName { get; set; }
-        [Display(Name = "Email address")]
+        [Display(Name = "Second Name")]
+        [Required(ErrorMessage = "Please enter a second name.")]
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,50}$", ErrorMessage = "Invalid Second Name.")]
+        public string SecondName { get; set; }
+        [Display(Name = "Email Address")]
         [Required(ErrorMessage = "The email address is required.")]
         [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Invalid Email Address.")]
-        public string Email { get; set; }
-        [Display(Name = "Confirm Email address")]
-        [Required(ErrorMessage = "The email address is required.")]
-        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Invalid Email Address.")]
-        [Compare("Email", ErrorMessage = "The email and confirmation email do not match.")]
-        public string ConfirmEmail { get; set; }
+        public string Email { get; set; }     
     }
 }

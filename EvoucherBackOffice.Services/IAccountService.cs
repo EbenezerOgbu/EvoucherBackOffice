@@ -5,8 +5,8 @@ namespace EvoucherBackOffice.Services
 {
     public interface IAccountService
     {
-        Task Login(LoginDTO login);
-        Task RequestPasswordReset(ForgotPasswordDTO forgotPassword);
-        Task ResetPassword(ResetPasswordDTO resetPassword);
+        Task<string> Login(LoginDTO login);
+        Task<bool> RequestPasswordReset(ForgotPasswordDTO forgotPassword);
+        Task<bool> ResetPassword(ResetPasswordDTO resetPassword);
     }
 }

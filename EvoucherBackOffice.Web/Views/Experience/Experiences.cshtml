@@ -1,16 +1,42 @@
-﻿
+﻿@model EvoucherBackOffice.Web.ViewModel.ExperiencesViewModel
+
 @{
     ViewBag.Title = "Experiences";
 }
 
-<section>
-    <div>
-        <div>
-            <h5>New Voucher</h5>
-            <div></div>
-        </div>
-        <div>
-
+<section class="experiences">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="experiences__panel">
+                    <div class="experiences__panel-header text-center">
+                        <div>
+                            <h6 class="experiences__panel-header-title">New Voucher</h6>
+                        </div>
+                        <div>
+                            <h6></h6>
+                        </div>
+                    </div>
+                    <div class="experiences__panel-body">
+                        <div class="experiences__panel-section-wrapper">
+                            <div class="pre-scrollable">
+                                @foreach (var item in Model.BasketItems)
+                                {
+                                    @Html.Partial("_ExperienceSummary", item)
+                                }
+                            </div>
+                            <div class="experiences__panel-line-wrapper">
+                                <hr class="experiences__panel-line" />
+                            </div>
+                            <div class="pull-right">
+                                <a href="@Url.Action("AddToCart", "Cart", Model.BasketItems)">
+                                    <input class="experiences__panel-button" type="submit" value="CONFIRM" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

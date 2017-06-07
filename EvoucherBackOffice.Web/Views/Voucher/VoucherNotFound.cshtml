@@ -3,14 +3,27 @@
     ViewBag.Title = "Voucher Not Found";
 }
 
-<section>
-    <div>
-        <div>
-            <h5>Notification</h5>
-            <div></div>
-        </div>
-        <div>
-
+<section class="voucher-not-found">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-5">
+                @Html.Partial("_Logo")
+            </div>
+            <div class="col-md-6 offset-md-3">
+                <div class="voucher-not-found__panel text-center">
+                    <div class="voucher-not-found__panel-header">
+                        <div>
+                            <h5 class="voucher-not-found__panel-header-title">Notification</h5>
+                        </div>
+                        <div>
+                            <h6></h6>
+                        </div>
+                    </div>
+                    <div class="voucher-not-found__panel-body">
+                        <p class="voucher-not-found__panel-message">Voucher not found. Please make sure you entered the correct voucher number.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

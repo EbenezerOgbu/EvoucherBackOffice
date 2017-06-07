@@ -1,0 +1,45 @@
+﻿@model EvoucherBackOffice.Web.ViewModel.BasketItemViewModel
+
+<div class="experience-summary">
+    <div class="col-md-8">
+        <div class="experience-summary__item">
+            <div class="row">
+                <div class="col-md-11 p-0">
+                    <div class="experience-summary__item-section-1">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="experience-summary__item-description-wrapper">
+                                    <p class="experience-summary__item-description">@Model.Experience.ShortDescription</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="experience-summary__item-price-wrapper">
+                                    <p class="experience-summary__item-price">£ @Model.Experience.Price</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="experience-summary__item-decrease-button-wrapper pull-right">
+                                    <button class="experience-summary__item-decrease-button" type="submit">
+                                        <span class="fa fa-minus fa-inverse"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="experience-summary__item-increase-button-wrapper">
+                                    <button class="experience-summary__item-increase-button" type="submit">
+                                        <span class="fa fa-plus fa-inverse"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="experience-summary__item-section-2">
+                        <input class="experience-summary__item-quantity text-center" type="text" value="@Model.Quantity"  readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

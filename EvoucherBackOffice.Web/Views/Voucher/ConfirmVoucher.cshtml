@@ -3,41 +3,37 @@
     ViewBag.Title = "ConfirmVoucher";
 }
 
-<section class="forgot-password">
+<section class="confirm-voucher">
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-5">
-                <div class="forgot-password__logo-wrapper">
-                    <img class="forgot-password__logo" src="~/Images/1b368effb130385264a163007d7931df.png" alt="Logo">
-                </div>
+                @Html.Partial("_Logo")
             </div>
             <div class="col-md-6 offset-md-3">
-                <div class="forgot-password__panel text-center">
-                    <div class="forgot-password__panel-header">
+                <div class="confirm-voucher__panel text-center">
+                    <div class="confirm-voucher__panel-header">
                         <div>
-                            <h6 class="forgot-password__panel-header-title">Scan barcode or enter manually</h6>
+                            <h6 class="confirm-voucher__panel-header-title">Scan barcode or enter manually</h6>
                         </div>
                         <div>
                             <h6></h6>
                         </div>
                     </div>
-                    <div class="forgot-password__panel-form">
+                    <div class="confirm-voucher__panel-form">
                         @using (Html.BeginForm())
                         {
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <div class="forgot-password__panel-form-item-wrapper">
-                                        <div class="forgot-password__panel-form-input-wrapper">
-                                            @Html.TextBoxFor(m => m.Email, new { @class = "forgot-password__panel-form-input form-control", placeholder = "e-mail address", type = "text" })
-                                        </div>
+                                    <div class="confirm-voucher__panel-form-input-wrapper">
+                                        @Html.TextBoxFor(m => m.VoucherNumber, new { @class = "confirm-voucher__panel-form-input form-control", placeholder = "e-mail address", type = "text" })
                                     </div>
                                 </div>
-                                <div class="forgot-password__panel-form-item-error col-md-12">
-                                    @Html.ValidationMessageFor(m => m.Email)
+                                <div class="confirm-voucher__panel-form-item-error col-md-12">
+                                    @Html.ValidationMessageFor(m => m.VoucherNumber)
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button class="forgot-password__panel-form-button" type="submit">
+                                <button class="confirm-voucher__panel-form-button" type="submit">
                                     <span class="fa fa-arrow-right fa-3x fa-inverse"></span>
                                 </button>
                             </div>

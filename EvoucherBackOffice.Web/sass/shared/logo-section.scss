@@ -1,0 +1,19 @@
+﻿@import "../variables";
+
+.logo-section{
+      border: 0;
+    &__item-wrapper{
+     margin: 30px 0px 0px -80px;
+
+    @media screen and (max-width: 1024px) {
+      margin: 30px 0px 0px 6px
+     }
+    }
+
+    &__item{
+    height: 50px;
+    @media screen and (max-width: 1024px) {
+      height: 30px;
+    }
+   }
+}
