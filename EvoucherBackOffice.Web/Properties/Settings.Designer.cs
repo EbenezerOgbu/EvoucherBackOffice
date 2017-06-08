@@ -25,7 +25,7 @@ namespace EvoucherBackOffice.Web.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://brs-chup-public.uksouth.cloudapp.azure.com/v1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://brs-chup-public.uksouth.cloudapp.azure.com")]
         public string ApiUrl {
             get {
                 return ((string)(this["ApiUrl"]));
@@ -38,6 +38,15 @@ namespace EvoucherBackOffice.Web.Properties {
         public string VoucherTypeId {
             get {
                 return ((string)(this["VoucherTypeId"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://brs-chup-public.uksouth.cloudapp.azure.com/v1")]
+        public string VoucherUrl {
+            get {
+                return ((string)(this["VoucherUrl"]));
             }
         }
     }

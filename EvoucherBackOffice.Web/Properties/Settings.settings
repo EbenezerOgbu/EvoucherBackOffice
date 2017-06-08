@@ -3,10 +3,13 @@
   <Profiles />
   <Settings>
     <Setting Name="ApiUrl" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://brs-chup-public.uksouth.cloudapp.azure.com/v1</Value>
+      <Value Profile="(Default)">http://brs-chup-public.uksouth.cloudapp.azure.com</Value>
     </Setting>
     <Setting Name="VoucherTypeId" Type="System.String" Scope="Application">
       <Value Profile="(Default)">DISCOUNT_VOUCHER</Value>
+    </Setting>
+    <Setting Name="VoucherUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://brs-chup-public.uksouth.cloudapp.azure.com/v1</Value>
     </Setting>
   </Settings>
 </SettingsFile>

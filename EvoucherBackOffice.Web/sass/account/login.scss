@@ -91,7 +91,8 @@
     }
       
      &__other-info-wrapper{
-     margin: 110px 0px 0px -40px;
+     width: 25%;
+     margin: 110px 0px 0px 180px;
 
      @media screen and (max-width: 1024px) {
         margin: 110px 0px 0px 60px;
@@ -100,5 +101,14 @@
 
     &__other-info-title{
         color: $color-text-alt;
+
+    }
+
+    &__other-info-title-link{
+        text-decoration:none;
+        &:hover{
+            text-decoration:underline;
+            text-decoration-color:$color-text-alt;
+        }
     }
 }

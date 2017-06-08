@@ -27,7 +27,7 @@ namespace EvoucherBackOffice.Web.Infrastructure
         {
             kernel.Bind<IAccountService>().To<AccountService>().WithConstructorArgument("baseUrl", Properties.Settings.Default.ApiUrl);
             kernel.Bind<IExperienceService>().To<ExperienceService>().WithConstructorArgument("baseUrl", Properties.Settings.Default.ApiUrl);
-            kernel.Bind<IVoucherService>().To<VoucherService>().WithConstructorArgument("baseUrl", Properties.Settings.Default.ApiUrl);
+            kernel.Bind<IVoucherService>().To<VoucherService>().WithConstructorArgument("baseUrl", Properties.Settings.Default.VoucherUrl);
             kernel.Bind<ICart>().To<Cart>().InSingletonScope();
         }
     }
