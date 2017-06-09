@@ -4,7 +4,7 @@
     <div class="col-md-8">
         <div class="experience-summary__item">
             <div class="row">
-                <div class="col-md-11 p-0">
+                <div class="col-md-10 p-0">
                     <div class="experience-summary__item-section-1">
                         <div class="row">
                             <div class="col-md-5">
@@ -19,14 +19,14 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="experience-summary__item-decrease-button-wrapper pull-right">
-                                    <button class="experience-summary__item-decrease-button" type="submit">
+                                    <button id="decreaseItem" class="experience-summary__item-decrease-button" type="submit">
                                         <span class="fa fa-minus fa-inverse"></span>
                                     </button>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="experience-summary__item-increase-button-wrapper">
-                                    <button class="experience-summary__item-increase-button" type="submit">
+                                    <button id="increaseItem" class="experience-summary__item-increase-button" type="submit">
                                         <span class="fa fa-plus fa-inverse"></span>
                                     </button>
                                 </div>
@@ -36,16 +36,18 @@
                 </div>
                 <div class="col-md-1">
                     <div class="experience-summary__item-section-2">
-                        <input class="experience-summary__item-quantity text-center" type="text" value="@Model.Quantity" readonly/>
+                        <input id="displayQuantity" class="experience-summary__item-quantity text-center" type="text" value="@Model.Quantity" readonly/>
                     </div>
                 </div>
-                <div>
-                    <p>
-                        <span>X</span><span></span>
-                    </p>
-                    <p>
-                        <span>TOT.</span><span>£</span><span></span>
-                    </p>
+                <div class="col-md-1">
+                    <div class="experience-summary__item-section-3">
+                        <p>
+                            <span>X </span><span> 1</span>
+                        </p>
+                        <p>
+                            <span>TOT. </span><span> £</span><span></span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

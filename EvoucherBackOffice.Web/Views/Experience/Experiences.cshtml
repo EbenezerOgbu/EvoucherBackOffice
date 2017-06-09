@@ -4,7 +4,7 @@
     ViewBag.Title = "Experiences";
 }
 
-<section class="experiences">
+<section id="BasketDetail" class="experiences">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -14,7 +14,7 @@
                             <h6 class="experiences__panel-header-title">New Voucher</h6>
                         </div>
                         <div>
-                            <h6></h6>
+
                         </div>
                     </div>
                     <div class="experiences__panel-body">
@@ -28,13 +28,17 @@
                             <div class="experiences__panel-line-wrapper">
                                 <hr class="experiences__panel-line" />
                             </div>
-                            <div class="pull-right">
-                                <p>
-                                    <span>TOTAL</span><span>£</span><span></span>
-                                </p>
-                                <a href="@Url.Action("AddToCart", "Cart", Model.BasketItems)">
-                                    <input class="experiences__panel-button" type="submit" value="CONFIRM" />
-                                </a>
+                            <div class="row">
+                                <div class="col-md-9" style="padding-top: 42px; padding-right:50px;">
+                                    <p class="pull-right">
+                                        <span>TOTAL:  </span><span>£ </span><span>200</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-2">
+                                    <a href="@Url.Action("AddToCart", "Cart", Model.BasketItems)">
+                                        <input class="experiences__panel-button" type="submit" value="CONFIRM" />
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
