@@ -10,13 +10,25 @@
                 <div class="experiences__panel">
                     <div class="experiences__panel-header text-center">
                         <div class="row">
-                            <div class="col-md-11">
+                            <div class="col-md-7">
                                 <h4 class="experiences__panel-header-title">New Voucher</h4>
                             </div>
-                            <div class="col-md-1">
-                                <a class="experiences__panel-nav-icon-link" href="#">
-                                    <span class="experiences__panel-nav-icon glyphicon glyphicon-option-vertical"></span>
-                                </a>
+                            <div class="col-md-5">
+                                <div class="experiences__panel-nav-body dropdown pull-right">
+                                    <a class="experiences__panel-nav-icon-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="experiences__panel-nav-icon glyphicon glyphicon-option-vertical"></span>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="height:100px; width:290px; margin: 10px 30px 0px 0px;border-radius:0px;">
+                                        <div class="experiences__panel-nav-item">
+                                            <a class="experiences__panel-nav-item-link dropdown-item" href="#">
+                                                <p class="experiences__panel-nav-item-title-1">Redeem Voucher</p>
+                                            </a>
+                                            <a class="experiences__panel-nav-item-link dropdown-item" href="@Url.Action("Login", "Account", null)">
+                                                <p class="experiences__panel-nav-item-title-2">Log Out</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

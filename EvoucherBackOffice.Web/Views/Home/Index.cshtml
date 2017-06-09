@@ -1,43 +1,60 @@
 ﻿@{
-    ViewBag.Title = "Action Page";
+    ViewBag.Title = "Action Dashboard";
 }
 
 <section class="home-index">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 offset-md-5">
-                @Html.Partial("_Logo")
+            <div class="col-md-8">
+                <div class="home-index__logo-wrapper pull-right">
+                    @Html.Partial("_Logo")
+                </div>
             </div>
             <div class="col-md-6 offset-md-3">
                 <div class="home-index__panel text-center">
                     <div class="home-index__panel-header">
-                        <div>
-                            <h6 class="home-index__panel-header-title">Please choose an action</h6>
-                        </div>
-                        <div>
-                            <h6></h6>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h4 class="home-index__panel-header-title">Please choose an action</h4>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="home-index__panel-nav-body dropdown pull-right">
+                                    <a class="home-index__panel-nav-icon-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="home-index__panel-nav-icon glyphicon glyphicon-option-vertical"></span>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="height:60px; width:290px; margin: 10px 30px 0px 0px;border-radius:0px;">
+                                        <div class="home-index__panel-nav-item">
+                                            <a class="home-index__panel-nav-item-link dropdown-item" href="@Url.Action("Login", "Account", null)">
+                                                <span class="home-index__panel-nav-item-title-1">Log Out</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="home-index__panel-body">
                         <div class="col-md-12">
-                            <div class="home-index__panel-section-wrapper">
+                            <div class="home-index__panel-section-wrapper-1">
                                 <div>
                                     <h6 class="home-index__panel-section-title">REDEEM EXISTING VOUCHER</h6>
                                 </div>
                                 <div class="text-center">
-                                    <a class="home-index__panel-section-button-link" href="@Url.Action("ConfirmVoucher", "Voucher", null)">                                      
-                                        <span class="home-index__panel-section-button fa fa-arrow-right fa-3x fa-inverse"></span>                                      
+                                    <a class="home-index__panel-section-button-link" href="@Url.Action("ConfirmVoucher", "Voucher", null)">
+                                        <span class="home-index__panel-section-button fa fa-arrow-right fa-3x fa-inverse"></span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                       
-                        <div>
-                            <hr  class="home-index__panel-section-line"/> 
+
+                        <div class="col-md-12" style="padding: 0px; margin: 0px;">
+                            <div class="home-index__panel-section-line-wrapper">
+                                <hr class="home-index__panel-section-line" />
+                            </div>
                         </div>
 
                         <div class="col-md-12">
-                            <div class="home-index__panel-section-wrapper">
+                            <div class="home-index__panel-section-wrapper-2">
                                 <div>
                                     <h6 class="home-index__panel-section-title">CREATE NEW VOUCHERS</h6>
                                 </div>

@@ -6,17 +6,32 @@
 <section class="voucher-not-found">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 offset-md-5">
-                @Html.Partial("_Logo")
+            <div class="col-md-8">
+                <div class="voucher-not-found__logo-wrapper pull-right">
+                    @Html.Partial("_Logo")
+                </div>
             </div>
             <div class="col-md-6 offset-md-3">
                 <div class="voucher-not-found__panel text-center">
                     <div class="voucher-not-found__panel-header">
-                        <div>
-                            <h5 class="voucher-not-found__panel-header-title">Notification</h5>
-                        </div>
-                        <div>
-                            <h6></h6>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <h4 class="voucher-not-found__panel-header-title">Notification</h4>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="voucher-not-found__panel-nav-body dropdown pull-right">
+                                    <a class="voucher-not-found__panel-nav-icon-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="voucher-not-found__panel-nav-icon glyphicon glyphicon-option-vertical"></span>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="height:60px; width:290px; margin: 10px 30px 0px 0px;border-radius:0px;">
+                                        <div class="voucher-not-found__panel-nav-item">
+                                            <a class="voucher-not-found__panel-nav-item-link dropdown-item" href="@Url.Action("Index", "Home", null)">
+                                                <span class="voucher-not-found__panel-nav-item-title-1">Back to Action Dashboard</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="voucher-not-found__panel-body">

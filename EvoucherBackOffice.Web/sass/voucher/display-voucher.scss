@@ -3,19 +3,20 @@
 .display-voucher{
     margin: 70px 0px 0px 430px;
     @media screen and (max-width: 1024px) {
-      margin:0px;
+       margin: 0px 0px 0px 145px;
     }
 
     &__panel{
-      margin: 90px 0px 0px 90px; 
-      width: 655px;
+      margin: 90px 0px 0px 25px; 
+      width: 655px; 
     }
 
     &__panel-header{
        height: 100px;
        width: 100%;
        background-color:$color-background-alt;
-       padding-top: 40px; 
+       padding-top: 32px;
+       padding-left: 98px; 
     }
 
     &__panel-header-title{
@@ -34,7 +35,8 @@
     }
 
      &__panel-item{
-         border:none;
+       padding: 3px 0px 3px 0px;
+
     }
 
     &__panel-item-title{
@@ -56,18 +58,18 @@
         height:60px; 
         width: 160px;
         margin: 35px 35px 0px 0px;
+
         &:focus{
           outline:none;
         }
     }
 
     &__panel-line{
-      background-color: $color-background-alt2;
+        background-color: $color-background-alt2;
+        width: 50%;
     }
 
      &__panel-line-wrapper{
-         width: 300px;
-         padding-left:15px;
-         margin: 25px 0px 25px 0px;
+         width: 50%;
     }
 }

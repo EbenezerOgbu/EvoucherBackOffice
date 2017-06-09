@@ -15,23 +15,60 @@
        width: 100%;
        background-color:$color-background-alt;
        padding-top: 32px;
-       padding-left: 80px; 
+       padding-left: 300px; 
     }
 
     &__panel-header-title{
        color: $color-text-alt;
     }
 
+    &__panel-nav-body{
+      margin-right: 10px;
+    }
+
+    &__panel-nav-section{
+
+    }
+
+    &__panel-nav-item{
+      padding:12px 0px 0px 30px;
+    }
+
+     &__panel-nav-item-link{
+        &:hover{
+            text-decoration: underline;
+            text-decoration-color:$color-background-alt;
+        }
+    }
+
+    &__panel-nav-item-title-1{
+      font-size:16px;
+      font-weight:bold;
+      color: $color-text;
+      margin-bottom: 20px;
+    }
+
+    &__panel-nav-item-title-2{
+      font-size:16px;
+      font-weight:bold;
+      color: $color-text;
+      margin-bottom: 20px;
+    }
+
+    &__panel-nav-item-title-3{
+      font-size:16px;
+      font-weight:bold;
+      color: $color-text;
+    }
+
     &__panel-nav-icon{
-       color:white; 
+       color:$color-text-alt; 
        font-size: 35px;
     }
 
     &__panel-nav-icon-link{
-
-       &:hover{
-           text-decoration-color:aqua;
-       }     
+       cursor:pointer;
+       &:hover{}     
     }
 
 

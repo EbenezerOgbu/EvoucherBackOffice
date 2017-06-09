@@ -6,13 +6,15 @@
 <section class="login">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 offset-md-5">
-                @Html.Partial("_Logo")
+            <div class="col-md-8">
+                <div class="login__logo-wrapper pull-right">
+                    @Html.Partial("_Logo")
+                </div>
             </div>
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-7 offset-md-3">
                 <div class="login__panel text-center">
                     <div class="login__panel-header">
-                        <h6 class="login__panel-header-title">Login</h6>
+                        <h4 class="login__panel-header-title">Login</h4>
                     </div>
                     <div class="login__panel-form">
                         @using (Html.BeginForm())

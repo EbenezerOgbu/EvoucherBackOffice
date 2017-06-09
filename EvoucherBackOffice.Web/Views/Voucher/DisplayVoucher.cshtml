@@ -9,11 +9,30 @@
             <div class="col-md-10 offset-md-1">
                 <div class="display-voucher__panel">
                     <div class="display-voucher__panel-header text-center">
-                        <div>
-                            <h6 class="display-voucher__panel-header-title">Redeem Voucher</h6>
-                        </div>
-                        <div>
-                            <h6></h6>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h4 class="display-voucher__panel-header-title">Redeem Voucher</h4>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="confirm-voucher__panel-nav-body dropdown pull-right">
+                                    <a class="confirm-voucher__panel-nav-icon-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="confirm-voucher__panel-nav-icon glyphicon glyphicon-option-vertical"></span>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="height:150px; width:290px; margin: 10px 30px 0px 0px;border-radius:0px;">
+                                        <div class="confirm-voucher__panel-nav-item">
+                                            <a class="experiences__panel-nav-item-link dropdown-item" href="@Url.Action("Index", "Home", null)">
+                                                <p class="confirm-voucher__panel-nav-item-title-1">Previous Screen</p>
+                                            </a>
+                                            <a class="experiences__panel-nav-item-link dropdown-item" href="@Url.Action("Experiences", "Experience", null)">
+                                                <p class="confirm-voucher__panel-nav-item-title-2">New Voucher</p>
+                                            </a>
+                                            <a class="experiences__panel-nav-item-link dropdown-item" href="@Url.Action("Login", "Account", null)">
+                                                <p class="confirm-voucher__panel-nav-item-title-3">Log Out</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="display-voucher__panel-body">
@@ -39,8 +58,8 @@
                                 </p>
                             </div>
 
-                            <div class="display-voucher__panel-line-wrapper">
-                                <hr class="display-voucher__panel-line" />
+                            <div class="display-voucher__panel-line-wrapper col-md-12">
+                                <hr class="display-voucher__panel-line pull-left" />
                             </div>
 
                             <div class="display-voucher__panel-item col-md-12">
@@ -53,12 +72,10 @@
                             <div class="display-voucher__panel-item col-md-12">
                                 <p class="display-voucher__panel-item-title">
                                     <span class="display-voucher__panel-item-key">Used on:</span>
-                                    <br />
-                                    <div>
-                                        <span class="display-voucher__panel-item-value">
-                                            @*@Model.UsedOn*@March 25, 2017 at 10.30 am<br />April2, 2017 at 15.30
-                                        </span>
-                                    </div>
+                                    <br /><br />
+                                    <span class="display-voucher__panel-item-value">
+                                        @*@Model.UsedOn*@March 25, 2017 at 10.30 am<br />April2, 2017 at 15.30
+                                    </span>
                                 </p>
                             </div>
                             <div class="text-center">

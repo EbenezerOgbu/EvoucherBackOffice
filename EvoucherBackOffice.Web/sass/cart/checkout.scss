@@ -1,8 +1,8 @@
 ﻿@import "../variables";
 .checkout{
-     margin: 70px 0px 0px 450px;
+     margin: 70px 30px 0px 180px;
     @media screen and (max-width: 1024px) {
-      margin:0px;
+      margin: 0px 51px 0px 0px;
     }
     &__panel{
        margin: 35px 0px 0px 90px; 
@@ -13,11 +13,54 @@
        height: 100px;
        width: 100%;
        background-color:$color-background-alt;
-       padding-top: 40px; 
+       padding-top: 32px;
+       padding-left: 250px;  
     }
 
     &__panel-header-title{
          color: $color-text-alt;
+    }
+
+       &__panel-nav-body{
+      margin-right: 10px;
+    }
+
+    &__panel-nav-section{
+
+    }
+
+    &__panel-nav-item{
+      padding:12px 0px 0px 30px;
+    }
+
+     &__panel-nav-item-link{
+        &:hover{
+            text-decoration: underline;
+            text-decoration-color:$color-background-alt;
+        }
+    }
+
+    &__panel-nav-item-title-1{
+      font-size:16px;
+      font-weight:bold;
+      color: $color-text;
+      margin-bottom: 20px;
+    }
+
+    &__panel-nav-item-title-2{
+      font-size:16px;
+      font-weight:bold;
+      color: $color-text;
+    }
+
+    &__panel-nav-icon{
+       color:$color-text-alt; 
+       font-size: 35px;
+    }
+
+    &__panel-nav-icon-link{
+       cursor:pointer;
+       &:hover{}     
     }
 
     &__panel-body{

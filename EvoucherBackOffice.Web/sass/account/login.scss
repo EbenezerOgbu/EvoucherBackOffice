@@ -5,10 +5,20 @@
     @media screen and (max-width: 1024px) {
       margin:0px;
     }
+
+      &__logo-wrapper{
+       margin-right:235px;
+       @media screen and (max-width: 1024px) {
+         margin: 10px 40px 0px 0px;
+       }
+    }
   
     &__panel{
-      margin: 100px 0px 0px 40px;
-      width: 430px;
+        margin: 100px 0px 0px 150px;
+         width: 430px;
+       @media screen and (max-width: 1024px) {
+        margin: 95px 20px 0px 265px;
+       }
     }
     &__panel-header{
        height: 100px;
@@ -80,7 +90,7 @@
         border-radius:50px;         
         height:100px; 
         width: 100px;
-        margin: 0px 0px 0px 0px;
+        margin: 45px 0px 0px 0px;
         &:focus{
           outline:none;
         }
@@ -92,7 +102,7 @@
       
      &__other-info-wrapper{
      width: 25%;
-     margin: 110px 0px 0px 180px;
+     margin: 110px 0px 0px 290px;
 
      @media screen and (max-width: 1024px) {
         margin: 110px 0px 0px 60px;
