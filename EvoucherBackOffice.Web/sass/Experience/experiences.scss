@@ -1,9 +1,9 @@
 ﻿@import "../variables";
 @import "../mixins";
 .experiences{
-    margin: 70px 0px 0px 450px;
+    margin: 70px 0px 0px 145px;
     @media screen and (max-width: 1024px) {
-      margin:0px;
+      margin:0px 60px 0px 0px;
     }
     &__panel{
        margin: 35px 0px 0px 10px; 
@@ -14,12 +14,26 @@
        height: 100px;
        width: 100%;
        background-color:$color-background-alt;
-       padding-top: 40px; 
+       padding-top: 32px;
+       padding-left: 80px; 
     }
 
     &__panel-header-title{
        color: $color-text-alt;
     }
+
+    &__panel-nav-icon{
+       color:white; 
+       font-size: 35px;
+    }
+
+    &__panel-nav-icon-link{
+
+       &:hover{
+           text-decoration-color:aqua;
+       }     
+    }
+
 
     &__panel-body{
        height: 620px;
