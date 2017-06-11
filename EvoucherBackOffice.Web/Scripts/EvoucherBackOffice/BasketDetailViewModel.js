@@ -10,31 +10,6 @@ function BasketDetailViewModel() {
     ////self.disallowUpdates = ko.observable(false);
 
 
-    $(document).on('click', '#decreaseItem', function () {
-        //var itemVal = $(this).siblings("input").val();
-        var itemVal = document.getElementById("displayQuantity").value;
-        if (itemVal == 0) {
-            $(this).prop("disabled", true);
-            return;
-        }
-        itemVal--;
-        if (itemVal == 0) {
-            $(this).prop("disabled", true);
-        }
-        document.getElementById("displayQuantity").value = itemVal;
-    });
-
-    $(document).on('click', '#increaseItem', function () {
-        //var itemVal = $(this).siblings("input").val();
-        var itemVal = document.getElementById("displayQuantity").value;
-        if (itemVal == 0) {
-            $(this).siblings('#decreaseItem').prop("disabled", false);
-        }
-        itemVal++;
-        document.getElementById("displayQuantity").value = itemVal;
-    });
-
-
     ////Becuase dynamically generated mark-up does not support event calls
     ////this script is used to provide such functionality
     //$(document).on('click', '.itemToRemove', function () {
@@ -126,7 +101,7 @@ function BasketDetailViewModel() {
 };
 
 
-$("#BasketDetail").each(function () {
-    ko.applyBindings(new BasketDetailViewModel());
-});
+//$("#BasketDetail").each(function () {
+//    ko.applyBindings(new BasketDetailViewModel());
+//});
 

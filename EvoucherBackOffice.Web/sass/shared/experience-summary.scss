@@ -7,10 +7,10 @@
 
     &__item-section-1{
        height: 80px;
-       width: 107%;
+       width: 113%;
        background-color:$color-background-alt;
        padding: 30px 12px 0px 18px;
-       margin: 10px 0px 10px 0px;
+       margin: 10px 0px 20px -14px;
     }
 
     &__item-description-wrapper{
@@ -73,18 +73,18 @@
     }
 
     &__item-section-2{
-       margin: 10px 0px 10px 35px;
+       margin: 10px 0px 20px 35px;
     }
 
       &__item-section-3{
-       margin: 20px 0px 10px 190px;
+       margin: 20px 0px 20px 190px;
        width: 150px;
     }
 
     &__item-quantity{
         color:$color-text-alt3;
         font-size: 22px; 
-        font-weight:100;        
+        font-weight:bold;        
         height:80px;
         width: 145px;
         border-radius:4px;
@@ -92,5 +92,9 @@
         &:focus{
           outline:none;
         }
+    }
+
+    &__item-line-total{
+        
     }
 }

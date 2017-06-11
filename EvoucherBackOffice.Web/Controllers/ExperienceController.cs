@@ -44,12 +44,31 @@ namespace EvoucherBackOffice.Web.Controllers
 
                 HttpContext.Session["experiences"] = model;
 
+                AddCode(model);
                 return View(model);
             }
             catch (Exception)
             {
                 return RedirectToAction("Error", "Home", new { area = "" });
             }         
+        }
+
+        private static void AddCode(ExperiencesViewModel experiencesViewModel)
+        {
+            string[] urls =  { "11",
+                               "22",
+                               "33",
+                               "44",
+                               "55",
+                               "66"
+                             };
+
+            var index = 0;
+            foreach (var bas in experiencesViewModel.BasketItems)
+            {
+                bas.Experience.Code = urls[index];
+                index++;
+            }
         }
     }
 }

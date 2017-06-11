@@ -19,14 +19,14 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="experience-summary__item-decrease-button-wrapper pull-right">
-                                    <button id="decreaseItem" class="experience-summary__item-decrease-button" type="submit">
+                                    <button id="decreaseItem-@{@Model.Experience.Code}" class="experience-summary__item-decrease-button">
                                         <span class="fa fa-minus fa-inverse"></span>
                                     </button>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="experience-summary__item-increase-button-wrapper">
-                                    <button id="increaseItem" class="experience-summary__item-increase-button" type="submit">
+                                    <button id="increaseItem-@{@Model.Experience.Code}" class="experience-summary__item-increase-button">
                                         <span class="fa fa-plus fa-inverse"></span>
                                     </button>
                                 </div>
@@ -36,16 +36,16 @@
                 </div>
                 <div class="col-md-1">
                     <div class="experience-summary__item-section-2">
-                        <input id="displayQuantity" class="experience-summary__item-quantity text-center" type="text" value="@Model.Quantity" readonly/>
+                        <input id="displayQuantity-@{@Model.Experience.Code}" class="experience-summary__item-quantity text-center" type="text" value="@Model.Quantity" readonly/>
                     </div>
                 </div>
                 <div class="col-md-1">
-                    <div class="experience-summary__item-section-3">
+                    <div class="experience-summary__item-section-3" id="lineSummary-@{@Model.Experience.Code}">
                         <p>
-                            <span>X </span><span> 1</span>
+                            <span>X </span><span id="totalQuantity-@{@Model.Experience.Code}">0</span>
                         </p>
                         <p>
-                            <span>TOT. </span><span> £</span><span></span>
+                            <span>TOT. </span><span> £</span><span class="experience-summary__item-line-total" id="totalPrice-@{@Model.Experience.Code}">0</span>
                         </p>
                     </div>
                 </div>
@@ -53,3 +53,68 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#lineSummary-@Model.Experience.Code").hide();
+        $("#basketTotal").hide();
+        var price = @Model.Experience.Price;
+
+        $("#decreaseItem-@Model.Experience.Code").click(function () {
+            var basketItems= new Array();
+            var itemVal = $("#displayQuantity-@Model.Experience.Code").val();
+            if (itemVal == 0) {
+                $("#decreaseItem-@Model.Experience.Code").prop("disabled", true);
+            }
+            itemVal--;
+            if (itemVal == 0) {
+                $("#decreaseItem-@Model.Experience.Code").prop("disabled", true);
+                $("#lineSummary-@Model.Experience.Code").hide();
+            }
+            $("#displayQuantity-@Model.Experience.Code").val(itemVal);
+            $("#totalQuantity-@Model.Experience.Code").html(itemVal);
+
+            var lineTotal = price * itemVal;
+            $("#totalPrice-@Model.Experience.Code").html(lineTotal);
+
+            $(".experience-summary__item-line-total").each(function(index, elem) {
+                basketItems.push(parseInt($(this).html()));
+            });
+            var bas = eval(basketItems.join("+"));
+            if(bas == 0){
+                $("#basketTotal").hide();
+                return;
+            }
+            $("#totalPrice").html(bas);
+            $("#basketTotal").show();
+        });
+
+        $("#increaseItem-@Model.Experience.Code").click(function () {
+            var basketItems= new Array();
+            var itemVal = $("#displayQuantity-@Model.Experience.Code").val();
+            if (itemVal == 0) {
+               $("#decreaseItem-@Model.Experience.Code").prop("disabled", false);
+            }
+
+            itemVal++;
+
+            if (itemVal > 0) {
+                $("#lineSummary-@Model.Experience.Code").show();
+            }
+
+            $("#displayQuantity-@Model.Experience.Code").val(itemVal);
+            $("#totalQuantity-@Model.Experience.Code").html(itemVal);
+
+            var lineTotal = price * itemVal;
+            $("#totalPrice-@Model.Experience.Code").html(lineTotal);
+
+            $(".experience-summary__item-line-total").each(function(index, elem) {
+                basketItems.push(parseInt($(this).html()));
+            });
+            var bas = eval(basketItems.join("+"));
+
+            $("#totalPrice").html(bas);
+            $("#basketTotal").show();
+       });
+    });
+</script>
