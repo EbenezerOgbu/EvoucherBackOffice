@@ -65,6 +65,7 @@
             var itemVal = $("#displayQuantity-@Model.Experience.Code").val();
             if (itemVal == 0) {
                 $("#decreaseItem-@Model.Experience.Code").prop("disabled", true);
+                return;
             }
             itemVal--;
             if (itemVal == 0) {
