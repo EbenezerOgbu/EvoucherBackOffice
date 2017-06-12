@@ -29,7 +29,7 @@ namespace EvoucherBackOffice.Web
                       "~/Content/css/e-voucher-back-office-main.css",
                       "~/Content/bootstrap.css",
                       "~/Content/fontawesome/font-awesome.css",
-                      "~/Content/site.css"));
+                      "~/Content/Site.css"));
         }
     }
 }

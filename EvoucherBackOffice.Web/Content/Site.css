@@ -1,42 +1,138 @@
-﻿    .maximo{
-        background-color:#0ab4cd;
-        width: 90%;
-        height: 40px;
-        padding: 12px 0px;
-        margin: 0px 0;
-        display: inline-block;
-        border-top:none;
-        border-left:none;
-        border-right:none;
-        border-style:none;
-        border-bottom: 1px solid #ffffff;
-        border-radius: 0px;
-        box-sizing: border-box;
-        color:black;
-        box-shadow:none;     
-    }
-    .maximo:focus{
-        background-color:#0ab4cd;
-        display: inline-block;
-        border-top:none;
-        border-left:none;
-        border-right:none;
-        border-style:none;
-        border-bottom: 2px solid black;
-        border-radius: 0px;
-        box-sizing: border-box;
-        color:black;
-        box-shadow:none; 
-    }
-    .maximo::-webkit-input-placeholder {
+﻿.login-input{
+    background-color:#0ab4cd;
+    width: 90%;
+    height: 40px;
+    padding: 12px 0px;
+    margin: 0px 0;
+    display: inline-block;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-style:none;
+    border-bottom: 1px solid #ffffff;
+    border-radius: 0px;
+    box-sizing: border-box;
+    color:black;
+    box-shadow:none;     
+}
+.login-input:focus{
+    background-color:#0ab4cd;
+    display: inline-block;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-style:none;
+    border-bottom: 2px solid black;
+    border-radius: 0px;
+    box-sizing: border-box;
+    color:black;
+    box-shadow:none; 
+}
+.login-input::-webkit-input-placeholder {
     color: white;
     }
-    .maximo:-moz-placeholder { 
+.login-input:-moz-placeholder { 
     color: white;
     }
-    .maximo::-moz-placeholder {  
+.login-input::-moz-placeholder {  
     color: white;
     }
-    .maximo:-ms-input-placeholder {
+.login-input:-ms-input-placeholder {
     color:  white;
-    } 
+} 
+
+.forgot-password-input {
+    background-color: #0ab4cd;
+    width: 90%;
+    height: 40px;
+    padding: 12px 0px;
+    margin: 0px 0;
+    display: inline-block;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-style: none;
+    border-bottom: 1px solid #ffffff;
+    border-radius: 0px;
+    box-sizing: border-box;
+    color: black;
+    box-shadow: none;
+}
+
+.forgot-password-input:focus {
+    background-color: #0ab4cd;
+    display: inline-block;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-style: none;
+    border-bottom: 2px solid black;
+    border-radius: 0px;
+    box-sizing: border-box;
+    color: black;
+    box-shadow: none;
+}
+
+.forgot-password-input::-webkit-input-placeholder {
+    color: white;
+}
+
+.forgot-password-input:-moz-placeholder {
+    color: white;
+}
+
+.forgot-password-input::-moz-placeholder {
+   color: white;
+}
+
+.forgot-password-input:-ms-input-placeholder {
+   color: white;
+}
+
+.confirm-voucher-input {
+    background-color: #0ab4cd;
+    width: 88%;
+    height: 40px;
+    padding: 12px 0px;
+    margin: 0px 0;
+    display: inline-block;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-style: none;
+    border-bottom: 1px solid #ffffff;
+    border-radius: 0px;
+    box-sizing: border-box;
+    color: black;
+    box-shadow: none;
+}
+
+.confirm-voucher-input:focus {
+    background-color: #0ab4cd;
+    display: inline-block;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-style: none;
+    border-bottom: 2px solid black;
+    border-radius: 0px;
+    box-sizing: border-box;
+    color: black;
+    box-shadow: none;
+}
+
+.confirm-voucher-input::-webkit-input-placeholder {
+   color: white;
+}
+
+.confirm-voucher-input:-moz-placeholder {
+  color: white;
+}
+
+.confirm-voucher-input::-moz-placeholder {
+   color: white;
+}
+
+.confirm-voucher-input:-ms-input-placeholder {
+            color: white;
+}

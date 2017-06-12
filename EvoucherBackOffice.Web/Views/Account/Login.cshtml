@@ -3,50 +3,7 @@
     ViewBag.Title = "Login";
 }
 
-<style>
-    .maximo{
-        background-color:#0ab4cd;
-        width: 90%;
-        height: 40px;
-        padding: 12px 0px;
-        margin: 0px 0;
-        display: inline-block;
-        border-top:none;
-        border-left:none;
-        border-right:none;
-        border-style:none;
-        border-bottom: 1px solid #ffffff;
-        border-radius: 0px;
-        box-sizing: border-box;
-        color:black;
-        box-shadow:none;     
-    }
-    .maximo:focus{
-        background-color:#0ab4cd;
-        display: inline-block;
-        border-top:none;
-        border-left:none;
-        border-right:none;
-        border-style:none;
-        border-bottom: 2px solid black;
-        border-radius: 0px;
-        box-sizing: border-box;
-        color:black;
-        box-shadow:none; 
-    }
-    .maximo::-webkit-input-placeholder {
-    color: white;
-    }
-    .maximo:-moz-placeholder { 
-    color: white;
-    }
-    .maximo::-moz-placeholder {  
-    color: white;
-    }
-    .maximo:-ms-input-placeholder {
-    color:  white;
-    } 
-</style>
+
 <section class="login">
     <div class="container">
         <div class="row">
@@ -71,7 +28,7 @@
                                             <span id="myLabel-1" class="fa fa-envelope fa-2x"></span>
                                         </div>
                                         <div class="login__panel-form-input-wrapper">                                        
-                                            @Html.TextBoxFor(m => m.Email, new { @class = "maximo form-control", placeholder = "E-mail", id="myInput-1" })
+                                            @Html.TextBoxFor(m => m.Email, new { @class = "login-input form-control", placeholder = "E-mail", id="myInput-1" })
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +43,7 @@
                                             <span id="myLabel-2" class="fa fa-lock fa-2x"></span>
                                         </div>
                                         <div class="login__panel-form-input-wrapper">
-                                            @Html.TextBoxFor(m => m.Password, new { @class = "maximo form-control", placeholder = "Password", id = "myInput-2" })
+                                            @Html.TextBoxFor(m => m.Password, new { @class = "login-input form-control", placeholder = "Password", id = "myInput-2" })
                                         </div>
                                     </div>
                                 </div>
