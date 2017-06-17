@@ -1,4 +1,4 @@
-﻿using System.Web;
+﻿using EvoucherBackOffice.Web.Infrastructure;
 using System.Web.Mvc;
 
 namespace EvoucherBackOffice.Web
@@ -7,7 +7,7 @@ namespace EvoucherBackOffice.Web
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            filters.Add(new HandleErrorAttribute());          
         }
     }
 }

@@ -134,5 +134,53 @@
 }
 
 .confirm-voucher-input:-ms-input-placeholder {
+            color: white; 
+}
+
+.checkout-input {
+    background-color: #0ab4cd;
+    width: 45%;
+    height: 45px;
+    padding: 12px 0px;
+    margin: 0px 0px 0px 206px;
+    display: inline-block;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-style: none;
+    border-bottom: 1px solid #ffffff;
+    border-radius: 0px;
+    box-sizing: border-box;
+    color: black;
+    box-shadow: none;
+}
+
+.checkout-input:focus {
+    background-color: #0ab4cd;
+    display: inline-block;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-style: none;
+    border-bottom: 2px solid black;
+    border-radius: 0px;
+    box-sizing: border-box;
+    color: black;
+    box-shadow: none;
+}
+
+.checkout-input::-webkit-input-placeholder {
+   color: white;
+}
+
+.checkout-input:-moz-placeholder {
+  color: white;
+}
+
+.checkout-input::-moz-placeholder {
+   color: white;
+}
+
+.checkout-input:-ms-input-placeholder {
             color: white;
 }

@@ -1,46 +1,55 @@
 ﻿using EvoucherBackOffice.Web.ViewModel;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace EvoucherBackOffice.Web.Models
 {
     public class Cart : ICart
     {
-        private CartLine _cartLine;
-        public Cart()
-        {
-            _cartLine = new CartLine();
-        }
-
+        private List<CartLine> lineCollection = new List<CartLine>();
+       
         public void AddItem(ExperienceViewModel experience, int quantity)
         {
-            _cartLine.Experience = experience;
-            _cartLine.Quantity = quantity;
+            CartLine line = lineCollection
+                            .Where(e => e.Experience.Code == experience.Code)
+                            .FirstOrDefault();
+            if (line == null)
+            {
+                lineCollection.Add(new CartLine { Experience = experience, Quantity = quantity });
+            }
+            else
+            {
+                line.Quantity = quantity;
+            }
         }
 
-        public void AdjustQuantity(int newQuantity)
+        public void RemoveItem(ExperienceViewModel experience, int quantity)
         {
-            _cartLine.Quantity = newQuantity;
+            CartLine line = lineCollection
+                           .Where(e => e.Experience.Code == experience.Code)
+                           .FirstOrDefault();
+            if (quantity==0)
+            {
+                lineCollection.RemoveAll(l => l.Experience.Code == experience.Code);
+            }
+            else
+            {
+                line.Quantity = quantity;
+            }
+
         }
+
         public decimal ComputeTotalValue()
         {
-            if (_cartLine.Experience == null)
-            {
-                var experience = new ExperienceViewModel();
-                return experience.Price * _cartLine.Quantity;
-            }
-            return _cartLine.Experience.Price * _cartLine.Quantity;
+            return lineCollection.Sum(e => e.Experience.Price * e.Quantity);
         }
         public void Clear()
         {
-            _cartLine.Quantity = 0;
-
+            lineCollection.Clear();
         }
-        public CartLine Line
+        public IEnumerable<CartLine> Lines
         {
-            get { return _cartLine; }
+            get { return lineCollection; }
         }
     }
 }

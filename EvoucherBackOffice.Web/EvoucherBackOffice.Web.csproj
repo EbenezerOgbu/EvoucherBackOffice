@@ -72,6 +72,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -145,6 +146,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\HttpParamActionAttribute.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\CartLine.cs" />
@@ -164,6 +166,9 @@
     <Compile Include="ViewModel\CustomerDetailViewModel.cs" />
     <Compile Include="ViewModel\ExperiencesViewModel.cs" />
     <Compile Include="ViewModel\ExperienceViewModel.cs" />
+    <Compile Include="ViewModel\JsonModelBinder.cs" />
+    <Compile Include="ViewModel\JsonVoucherItem.cs" />
+    <Compile Include="ViewModel\JsonVoucherItemUpdate.cs" />
     <Compile Include="ViewModel\VoucherDetailViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -219,9 +224,11 @@
     <Content Include="sass\home\error-page.scss" />
     <Content Include="sass\shared\logo-section.scss" />
     <Content Include="sass\cart\checkout.scss" />
+    <Content Include="sass\voucher\new-voucher-confirmation.scss" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\experience.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -263,6 +270,7 @@
     <Content Include="Views\Shared\_ExperienceSummary.cshtml" />
     <Content Include="Views\Cart\Checkout.cshtml" />
     <Content Include="Views\Shared\_Logo.cshtml" />
+    <Content Include="Views\Voucher\NewVoucherConfirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

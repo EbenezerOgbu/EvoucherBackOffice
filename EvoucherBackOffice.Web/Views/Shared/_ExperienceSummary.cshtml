@@ -1,4 +1,4 @@
-﻿@model EvoucherBackOffice.Web.ViewModel.BasketItemViewModel
+﻿@model EvoucherBackOffice.Web.ViewModel.ExperienceViewModel
 
 <div class="experience-summary">
     <div class="col-md-8">
@@ -9,24 +9,24 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="experience-summary__item-description-wrapper">
-                                    <p class="experience-summary__item-description">@Model.Experience.ShortDescription</p>
+                                    <p class="experience-summary__item-description">@Model.ShortDescription</p>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="experience-summary__item-price-wrapper">
-                                    <p class="experience-summary__item-price">£ @Model.Experience.Price</p>
+                                    <p class="experience-summary__item-price">£ @Model.Price</p>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="experience-summary__item-decrease-button-wrapper pull-right">
-                                    <button id="decreaseItem-@{@Model.Experience.Code}" class="experience-summary__item-decrease-button">
+                                    <button id="decreaseItem-@{@Model.Code}" class="experience-summary__item-decrease-button">
                                         <span class="fa fa-minus fa-inverse"></span>
                                     </button>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="experience-summary__item-increase-button-wrapper">
-                                    <button id="increaseItem-@{@Model.Experience.Code}" class="experience-summary__item-increase-button">
+                                    <button id="increaseItem-@{@Model.Code}" class="experience-summary__item-increase-button">
                                         <span class="fa fa-plus fa-inverse"></span>
                                     </button>
                                 </div>
@@ -36,16 +36,16 @@
                 </div>
                 <div class="col-md-1">
                     <div class="experience-summary__item-section-2">
-                        <input id="displayQuantity-@{@Model.Experience.Code}" class="experience-summary__item-quantity text-center" type="text" value="@Model.Quantity" readonly/>
+                        <input id="displayQuantity-@{@Model.Code}" class="experience-summary__item-quantity text-center" type="text" value="0" readonly/>
                     </div>
                 </div>
                 <div class="col-md-1">
-                    <div class="experience-summary__item-section-3" id="lineSummary-@{@Model.Experience.Code}">
+                    <div class="experience-summary__item-section-3" id="lineSummary-@{@Model.Code}">
                         <p>
-                            <span>X </span><span id="totalQuantity-@{@Model.Experience.Code}">0</span>
+                            <span>X </span><span id="totalQuantity-@{@Model.Code}">0</span>
                         </p>
                         <p>
-                            <span>TOT. </span><span> £</span><span class="experience-summary__item-line-total" id="totalPrice-@{@Model.Experience.Code}">0</span>
+                            <span>TOT. </span><span> £</span><span class="experience-summary__item-line-total" id="totalPrice-@{@Model.Code}">0</span>
                         </p>
                     </div>
                 </div>
@@ -53,30 +53,52 @@
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
     $(document).ready(function () {
 
-        $("#lineSummary-@Model.Experience.Code").hide();
-        $("#basketTotal").hide();
-        var price = @Model.Experience.Price;
 
-        $("#decreaseItem-@Model.Experience.Code").click(function () {
+        $("#lineSummary-@Model.Code").hide();
+        $("#basketTotal").hide();
+        var price = @Model.Price;
+
+        $("#decreaseItem-@Model.Code").click(function (evt) {
             var basketItems= new Array();
-            var itemVal = $("#displayQuantity-@Model.Experience.Code").val();
+            var itemVal = $("#displayQuantity-@Model.Code").val();
             if (itemVal == 0) {
-                $("#decreaseItem-@Model.Experience.Code").prop("disabled", true);
+                $("#decreaseItem-@Model.Code").prop("disabled", true);
+                evt.preventDefault();              
                 return;
             }
             itemVal--;
             if (itemVal == 0) {
-                $("#decreaseItem-@Model.Experience.Code").prop("disabled", true);
-                $("#lineSummary-@Model.Experience.Code").hide();
+                $("#decreaseItem-@Model.Code").prop("disabled", true);
+                $("#lineSummary-@Model.Code").hide();
+                evt.preventDefault();
             }
-            $("#displayQuantity-@Model.Experience.Code").val(itemVal);
-            $("#totalQuantity-@Model.Experience.Code").html(itemVal);
 
+            //hhfgfg
+            var postData = { 
+                "VoucherCode":@Model.Code,
+                "Qty":itemVal
+            };
+            var strObj = JSON.stringify(postData);
+            $.ajax({
+                url: "/Cart/RemoveFromCart",
+                type: 'POST',
+                dataType: 'json',
+                data: strObj,
+                success: function (data) {}
+            });
+            //Blur
+
+            $("#displayQuantity-@Model.Code").val(itemVal);
+            $("#totalQuantity-@Model.Code").html(itemVal);
+            evt.preventDefault();
             var lineTotal = price * itemVal;
-            $("#totalPrice-@Model.Experience.Code").html(lineTotal);
+            $("#totalPrice-@Model.Code").html(lineTotal);
+
+            //daas
 
             $(".experience-summary__item-line-total").each(function(index, elem) {
                 basketItems.push(parseInt($(this).html()));
@@ -87,27 +109,31 @@
                 return;
             }
             $("#totalPrice").html(bas);
-            $("#basketTotal").show();
+            $("#basketTotal").show();         
         });
 
-        $("#increaseItem-@Model.Experience.Code").click(function () {
+        $("#increaseItem-@Model.Code").click(function (evt) {
             var basketItems= new Array();
-            var itemVal = $("#displayQuantity-@Model.Experience.Code").val();
+            var itemVal = $("#displayQuantity-@Model.Code").val();
             if (itemVal == 0) {
-               $("#decreaseItem-@Model.Experience.Code").prop("disabled", false);
+                $("#decreaseItem-@Model.Code").prop("disabled", false);
+                evt.preventDefault();
             }
 
             itemVal++;
 
             if (itemVal > 0) {
-                $("#lineSummary-@Model.Experience.Code").show();
+                $("#lineSummary-@Model.Code").show();
+                evt.preventDefault();
             }
 
-            $("#displayQuantity-@Model.Experience.Code").val(itemVal);
-            $("#totalQuantity-@Model.Experience.Code").html(itemVal);
-
+            $("#displayQuantity-@Model.Code").val(itemVal);
+            $("#totalQuantity-@Model.Code").html(itemVal);
+            evt.preventDefault();
             var lineTotal = price * itemVal;
-            $("#totalPrice-@Model.Experience.Code").html(lineTotal);
+            $("#totalPrice-@Model.Code").html(lineTotal);
+
+            //daaas
 
             $(".experience-summary__item-line-total").each(function(index, elem) {
                 basketItems.push(parseInt($(this).html()));
@@ -116,6 +142,20 @@
 
             $("#totalPrice").html(bas);
             $("#basketTotal").show();
-       });
+
+            //haasd
+            var postData = { 
+                "VoucherCode":@Model.Code,
+                "Qty":itemVal
+            };
+            var strObj = JSON.stringify(postData);
+            $.ajax({
+                url: "/Cart/AddToCart",
+                type: 'POST',
+                dataType: 'json',
+                data: strObj,
+                success: function (data) {}
+            });
+        });
     });
 </script>

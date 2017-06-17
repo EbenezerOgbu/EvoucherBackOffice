@@ -20,7 +20,7 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="height:100px; width:290px; margin: 10px 30px 0px 0px;border-radius:0px;">
                                         <div class="experiences__panel-nav-item">
-                                            <a class="experiences__panel-nav-item-link dropdown-item" href="#">
+                                            <a class="experiences__panel-nav-item-link dropdown-item" href="@Url.Action("ConfirmVoucher", "Voucher", null)">
                                                 <p class="experiences__panel-nav-item-title-1">Redeem Voucher</p>
                                             </a>
                                             <a class="experiences__panel-nav-item-link dropdown-item" href="@Url.Action("Login", "Account", null)">
@@ -35,7 +35,7 @@
                     <div class="experiences__panel-body">
                         <div class="experiences__panel-section-wrapper">
                             <div class="pre-scrollable">
-                                @foreach (var item in Model.BasketItems)
+                                @foreach (var item in Model.Experiences)
                                 {
                                     @Html.Partial("_ExperienceSummary", item)
                                 }
@@ -44,14 +44,14 @@
                                 <hr class="experiences__panel-line" />
                             </div>
                             <div class="row">
-                                <div  class="col-md-9" style="padding-top: 42px; padding-right:50px;">
+                                <div class="col-md-9" style="padding-top: 42px; padding-right:50px;">
                                     <p id="basketTotal" class="pull-right">
                                         <span>TOTAL:  </span><span>£ </span><span id="totalPrice"></span>
                                     </p>
                                 </div>
                                 <div class="col-md-2">
-                                    <a href="@Url.Action("AddToCart", "Cart", Model.BasketItems)">
-                                        <input class="experiences__panel-button" type="submit" value="CONFIRM" />
+                                    <a href="@Url.Action("Checkout", "Cart", null)">
+                                        <input class="experiences__panel-button" type="button" value="CONFIRM" />
                                     </a>
                                 </div>
                             </div>

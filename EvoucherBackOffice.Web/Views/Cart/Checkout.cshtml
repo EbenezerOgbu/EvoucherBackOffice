@@ -1,4 +1,4 @@
-﻿@model EvoucherBackOffice.Web.ViewModel.BasketViewModel
+﻿@model EvoucherBackOffice.Web.ViewModel.CustomerDetailViewModel
 @{
     ViewBag.Title = "Add Customer Info";
 }
@@ -20,7 +20,7 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="height:100px; width:290px; margin: 10px 30px 0px 0px;border-radius:0px;">
                                         <div class="checkout__panel-nav-item">
-                                            <a class="checkout__panel-nav-item-link dropdown-item" href="#">
+                                            <a class="checkout__panel-nav-item-link dropdown-item" href="@Url.Action("ConfirmVoucher", "Voucher", null)">
                                                 <p class="checkout__panel-nav-item-title-1">Redeem Voucher</p>
                                             </a>
                                             <a class="checkout__panel-nav-item-link dropdown-item" href="@Url.Action("Login", "Account", null)">
@@ -34,43 +34,43 @@
                     </div>
                     <div class="checkout__panel-body">
                         <div class="checkout__panel-form">
-                            @using (Html.BeginForm())
+                            @using (Html.BeginForm("Action", "Cart"))
                             {
                                 @Html.AntiForgeryToken()
                                 <div class="form-group">
                                     <div class="col-md-12">
-                                        @Html.TextBoxFor(m => m.CustomerDetail.FirstName, new { @class = "checkout__panel-form-item form-control", placeholder = "Customer's First Name" })
+                                        @Html.TextBoxFor(m => m.FirstName, new { @class = "checkout-input form-control", placeholder = "Customer's First Name" })
                                     </div>
                                     <div class="col-md-12">
                                         <div class="checkout__panel-form-item-error">
-                                            @Html.ValidationMessageFor(m => m.CustomerDetail.FirstName)
+                                            @Html.ValidationMessageFor(m => m.FirstName)
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12">
-                                        @Html.TextBoxFor(m => m.CustomerDetail.SecondName, new { @class = "checkout__panel-form-item form-control", placeholder = "Customer's Second Name" })
+                                        @Html.TextBoxFor(m => m.SecondName, new { @class = "checkout-input form-control", placeholder = "Customer's Second Name" })
                                     </div>
                                     <div class="col-md-12">
                                         <div class="checkout__panel-form-item-error">
-                                            @Html.ValidationMessageFor(m => m.CustomerDetail.SecondName)
+                                            @Html.ValidationMessageFor(m => m.SecondName)
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12">
-                                        @Html.TextBoxFor(m => m.CustomerDetail.Email, new { @class = "checkout__panel-form-item form-control", placeholder = "Customer's Email Address" })
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "checkout-input form-control", placeholder = "Customer's Email Address" })
                                     </div>
                                     <div class="col-md-12">
                                         <div class="checkout__panel-form-item-error">
-                                            @Html.ValidationMessageFor(m => m.CustomerDetail.Email)
+                                            @Html.ValidationMessageFor(m => m.Email)
                                         </div>
                                     </div>
                                 </div>
                                 <div class="text-center">
                                     <div class="checkout__panel-form-button-wrapper">
-                                        <input class="checkout__panel-form-button-1" type="submit" value="USE LATER" />
-                                        <input class="checkout__panel-form-button-2" type="submit" value="USE NOW" />
+                                        <input class="checkout__panel-form-button-1" name="UseLater" type="submit" value="USE LATER" />
+                                        <input class="checkout__panel-form-button-2" name="UseNow" type="submit" value="USE NOW" />
                                     </div>
                                 </div>
                             }

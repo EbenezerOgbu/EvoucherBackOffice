@@ -25,21 +25,17 @@ namespace EvoucherBackOffice.Web.Controllers
                 var allExperiences = _experienceService.GetExperiences().Result;
                 var model = new ExperiencesViewModel
                 {
-                    BasketItems = allExperiences.Select(
-                        c => new BasketItemViewModel
-                        {
-                            Experience = new ExperienceViewModel
-                            {
-                                Code = c.code,
-                                Type = c.type,
-                                ShortDescription = c.shortDescription,
-                                LongDescription = c.longDescription,
-                                Vat = c.vat,
-                                ImageUrl = c.imageUrl,
-                                Price = c.price
-                            }
-
-                        }).ToList()
+                    Experiences = allExperiences.Select(
+                    c => new ExperienceViewModel
+                    {
+                        Code = c.code,
+                        Type = c.type,
+                        ShortDescription = c.shortDescription,
+                        LongDescription = c.longDescription,
+                        Vat = c.vat,
+                        ImageUrl = c.imageUrl,
+                        Price = c.price
+                    }).ToList()
                 };
 
                 HttpContext.Session["experiences"] = model;
@@ -64,9 +60,9 @@ namespace EvoucherBackOffice.Web.Controllers
                              };
 
             var index = 0;
-            foreach (var bas in experiencesViewModel.BasketItems)
+            foreach (var bas in experiencesViewModel.Experiences)
             {
-                bas.Experience.Code = urls[index];
+                bas.Code = urls[index];
                 index++;
             }
         }

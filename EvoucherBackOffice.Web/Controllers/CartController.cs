@@ -1,6 +1,6 @@
-﻿using EvoucherBackOffice.Web.Models;
+﻿using EvoucherBackOffice.Web.Infrastructure;
+using EvoucherBackOffice.Web.Models;
 using EvoucherBackOffice.Web.ViewModel;
-using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace EvoucherBackOffice.Web.Controllers
@@ -8,60 +8,63 @@ namespace EvoucherBackOffice.Web.Controllers
     public class CartController : Controller
     {
         private readonly ICart _cart;
-        private BasketViewModel _basketViewModel;
+        private CustomerDetailViewModel _customerDetailViewModel;
         public CartController(ICart cart)
         {
             _cart = cart;
-            _basketViewModel = new BasketViewModel();
-        }
-        public RedirectToRouteResult AddToCart(List<BasketItemViewModel> basketItems)
-        {
-            foreach (var item in basketItems)
-            {
-                if (item.Quantity > 0)
-                {
-                    _cart.AddItem(item.Experience, item.Quantity);
-                }
-            }            
-            return RedirectToAction("Checkout");
-        }
-
-        public PartialViewResult BasketSummary()
-        {
-            return PartialView(_cart);
-        }
-        public ViewResult Checkout(CustomerDetailViewModel customerDetail = null)
-        {
-            _basketViewModel.Experience = _cart.Line.Experience;
-            _basketViewModel.Quantity = _cart.Line.Quantity;
-            _basketViewModel.CustomerDetail = customerDetail;
-            return View(_basketViewModel);
+            _customerDetailViewModel= new CustomerDetailViewModel();
         }
 
         [HttpPost]
-        public ActionResult Checkout(FormCollection collection)
+        public JsonResult AddToCart(JsonVoucherItem itemUpdate)
         {
-            if (TryUpdateModel(_basketViewModel))
-            {
-                if (_basketViewModel.Quantity > 0 && _basketViewModel.Quantity != _cart.Line.Quantity)
-                {
-                    _cart.AdjustQuantity(_basketViewModel.Quantity);
-                }
-                       
-                _basketViewModel.Experience = _cart.Line.Experience;
-                _basketViewModel.LineTotal = _cart.ComputeTotalValue();
+            ExperiencesViewModel storedModel = (ExperiencesViewModel)HttpContext.Session["experiences"];
 
-                HttpContext.Session["basket"] = _basketViewModel;
+            ExperienceViewModel exp = storedModel.Experiences.Find(e => e.Code == itemUpdate.VoucherCode);
 
-                return RedirectToAction("ClearBasket");
-            }
-            return View(_basketViewModel);
+            _cart.AddItem(exp, itemUpdate.Qty);  
+            return Json("OK");
         }
 
-        public ActionResult ClearBasket()
+        [HttpPost]
+        public JsonResult RemoveFromCart(JsonVoucherItem itemUpdate)
         {
-            _cart.Clear();
-            return RedirectToAction("PostNewOrder", "Voucher", new { area = "" });
+            ExperiencesViewModel storedModel = (ExperiencesViewModel)HttpContext.Session["experiences"];
+
+            ExperienceViewModel exp = storedModel.Experiences.Find(e => e.Code == itemUpdate.VoucherCode);
+
+            _cart.RemoveItem(exp, itemUpdate.Qty);
+        
+            return Json("OK");
+        }
+
+        public ViewResult Checkout()
+        {
+            return View(_customerDetailViewModel);
+        }
+
+        [HttpParamAction]
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult UseLater(FormCollection collection)
+        {
+            if (TryUpdateModel(_customerDetailViewModel))
+            {
+                HttpContext.Session["customerDetail"] = _customerDetailViewModel;
+                return RedirectToAction("CreateAndUseLater", "Voucher", new { area = "" });
+            }
+            return RedirectToAction("Checkout");
+        }
+
+        [HttpParamAction]
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult UseNow(FormCollection collection)
+        {
+            if (TryUpdateModel(_customerDetailViewModel))
+            {
+                HttpContext.Session["customerDetail"] = _customerDetailViewModel;
+                return RedirectToAction("CreateAndUseNow", "Voucher", new { area = "" });
+            }
+            return RedirectToAction("Checkout");
         }
     }
 }

@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "New Voucher Confirmation";
+}
+
+<section class="new-voucher-confirmation">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="new-voucher-confirmation__logo-wrapper pull-right">
+                    @Html.Partial("_Logo")
+                </div>
+            </div>
+            <div class="col-md-6 offset-md-3">
+                <div class="new-voucher-confirmation__panel text-center">
+                    <div class="new-voucher-confirmation__panel-header">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h4 class="new-voucher-confirmation__panel-header-title">New Voucher Confirmation</h4>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="new-voucher-confirmation__panel-nav-body dropdown pull-right">
+                                    <a class="new-voucher-confirmation__panel-nav-icon-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="new-voucher-confirmation__panel-nav-icon glyphicon glyphicon-option-vertical"></span>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="height:60px; width:290px; margin: 10px 30px 0px 0px;border-radius:0px;">
+                                        <div class="new-voucher-confirmation__panel-nav-item">
+                                            <a class="new-voucher-confirmation__panel-nav-item-link dropdown-item" href="@Url.Action("Index", "Home", null)">
+                                                <span class="new-voucher-confirmation__panel-nav-item-title-1">Back to Action Dashboard</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="new-voucher-confirmation__panel-body">
+                        <p class="new-voucher-confirmation__panel-message">A new voucher has been created successfully. Details of the voucher has been sent to the customers email.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

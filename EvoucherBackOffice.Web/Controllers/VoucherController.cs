@@ -1,5 +1,6 @@
 ﻿using EvoucherBackOffice.Services;
 using EvoucherBackOffice.Services.DTObjects.Voucher;
+using EvoucherBackOffice.Web.Models;
 using EvoucherBackOffice.Web.ViewModel;
 using System;
 using System.Web.Mvc;
@@ -9,10 +10,12 @@ namespace EvoucherBackOffice.Web.Controllers
     public class VoucherController : Controller
     {
         private readonly IVoucherService _voucherService;
+        private readonly ICart _cart;
         private VoucherDetailViewModel _voucherDetailViewModel;
-        private BasketViewModel _basketViewModel;
-        public VoucherController(IVoucherService voucherService)
+        private CustomerDetailViewModel _customerDetailViewModel;
+        public VoucherController(IVoucherService voucherService, ICart cart)
         {
+            _cart = cart;
             _voucherService = voucherService;
         }
         public ActionResult ConfirmVoucher()
@@ -25,7 +28,7 @@ namespace EvoucherBackOffice.Web.Controllers
         {
             try
             {
-                if (string.IsNullOrEmpty(confirmVoucher.VoucherToken))
+                if (!string.IsNullOrEmpty(confirmVoucher.VoucherToken))
                 {
                     var voucherDetail = _voucherService.GetVoucher(confirmVoucher.VoucherToken).Result;
                     var model = new VoucherDetailViewModel
@@ -82,22 +85,40 @@ namespace EvoucherBackOffice.Web.Controllers
             return RedirectToAction("Experiences", "Experience", new { area = "" });
         }
 
-        public ActionResult PostNewOrder()
+        public ActionResult CreateAndUseNow()
         {        
             try
             {
-                var basket = (BasketViewModel)HttpContext.Session["basket"];
-                if (basket != null)
+                var customerDetail = (CustomerDetailViewModel)HttpContext.Session["customerDetail"];
+                if (customerDetail != null)
                 {
-                    _basketViewModel = basket;
+                    _customerDetailViewModel = customerDetail;
                 }
-                CreateAndPostOrder(_voucherService);
+                //CreateAndPostOrder(_voucherService);
                 return RedirectToAction("DisplayVoucher");
             }
             catch (Exception)
             {
                 return RedirectToAction("Error", "Home", new { area = "" });
             }          
+        }
+
+        public ActionResult CreateAndUseLater()
+        {
+            try
+            {
+                var customerDetail = (CustomerDetailViewModel)HttpContext.Session["customerDetail"];
+                if (customerDetail != null)
+                {
+                    _customerDetailViewModel = customerDetail;
+                }
+                //CreateAndPostOrder(_voucherService);
+                return View("NewVoucherConfirmation");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Error", "Home", new { area = "" });
+            }
         }
         public ActionResult VoucherNotFound()
         {
@@ -110,11 +131,25 @@ namespace EvoucherBackOffice.Web.Controllers
             {
                vouchertypeId = Properties.Settings.Default.VoucherTypeId,
                maxRedemptions = 0,
-               firstName = _basketViewModel.CustomerDetail.FirstName,
-               lastName = _basketViewModel.CustomerDetail.SecondName,
-               email = _basketViewModel.CustomerDetail.Email
+               firstName = _customerDetailViewModel.FirstName,
+               lastName = _customerDetailViewModel.SecondName,
+               email = _customerDetailViewModel.Email
             };
+
+            foreach (var itemLine in _cart.Lines)
+            {
+                var attribute = new AttributeDTO
+                {
+                    attributeId = itemLine.Experience.Code,
+                    value = itemLine.Quantity.ToString(),
+                };
+                createVoucher.attributes.Add(attribute);
+            }
+
             var voucherDetail =  voucherService.CreateVoucher(createVoucher).Result;
+
+            _cart.Clear();
+
             var model = new VoucherDetailViewModel
             {
                 VoucherToken = voucherDetail.voucherToken,
