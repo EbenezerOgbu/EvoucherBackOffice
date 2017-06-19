@@ -112,7 +112,7 @@ namespace EvoucherBackOffice.Web.Controllers
                 {
                     _customerDetailViewModel = customerDetail;
                 }
-                //CreateAndPostOrder(_voucherService);
+                CreateAndPostOrder(_voucherService);
                 return View("NewVoucherConfirmation");
             }
             catch (Exception)

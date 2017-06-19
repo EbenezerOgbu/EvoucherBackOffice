@@ -1,6 +1,7 @@
 ﻿using EvoucherBackOffice.Services;
 using EvoucherBackOffice.Web.ViewModel;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -22,21 +23,23 @@ namespace EvoucherBackOffice.Web.Controllers
             }
             try
             {
-                var allExperiences = _experienceService.GetExperiences().Result;
-                var model = new ExperiencesViewModel
-                {
-                    Experiences = allExperiences.Select(
-                    c => new ExperienceViewModel
-                    {
-                        Code = c.code,
-                        Type = c.type,
-                        ShortDescription = c.shortDescription,
-                        LongDescription = c.longDescription,
-                        Vat = c.vat,
-                        ImageUrl = c.imageUrl,
-                        Price = c.price
-                    }).ToList()
-                };
+                //var allExperiences = _experienceService.GetExperiences().Result;
+                //var model = new ExperiencesViewModel
+                //{
+                //    Experiences = allExperiences.Select(
+                //    c => new ExperienceViewModel
+                //    {
+                //        Code = c.code,
+                //        Type = c.type,
+                //        ShortDescription = c.shortDescription,
+                //        LongDescription = c.longDescription,
+                //        Vat = c.vat,
+                //        ImageUrl = c.imageUrl,
+                //        Price = c.price
+                //    }).ToList()
+                //};
+
+                var model = CreateExperiences();
 
                 HttpContext.Session["experiences"] = model;
 
@@ -66,5 +69,48 @@ namespace EvoucherBackOffice.Web.Controllers
                 index++;
             }
         }
+
+        private ExperiencesViewModel CreateExperiences()
+        {
+            var list = new List<ExperienceViewModel>
+            {
+                new ExperienceViewModel
+                {
+                    ShortDescription = "1 Day Luxury package",
+                    Price = 95
+                },
+                new ExperienceViewModel
+                {
+                   ShortDescription = "3 Day VIP Dinning",
+                   Price = 150
+                },
+                new ExperienceViewModel
+                {
+                    ShortDescription = "1 Month total lounge",
+                    Price = 400
+                },
+                new ExperienceViewModel
+                {
+                     ShortDescription = "1 week access",
+                     Price = 295
+                },
+                 new ExperienceViewModel
+                {
+                   ShortDescription = "1 month lounge access",
+                   Price = 495
+                },
+                new ExperienceViewModel
+                {
+                    ShortDescription = "1 year access",
+                    Price = 750
+                }
+            };
+            var experiencesViewModel = new ExperiencesViewModel
+            {
+                Experiences = list
+            };
+            return experiencesViewModel;
+        }
+
     }
 }
